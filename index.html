@@ -1012,9 +1012,12 @@
       border-bottom: 1px solid rgba(255, 255, 255, .14);
     }
     .adv-item:hover { transform: none; }
-    .benefits-divider { margin: 64px 0; }
   }
   @media (max-width: 640px) {
+    .cc-wrap,
+    .adv-wrap {
+      gap: 28px;
+    }
     .cc-visual svg text { font-size: 16px; }
     .adv-list { gap: 28px; }
     .adv-content h3 { font-size: 1.25rem; }
@@ -1083,12 +1086,12 @@
     box-shadow: var(--shadow-md);
   }
 
-  /* enercity- und purpur-Logo: SVG-Variante mit Verlauf */
-  .logo-item.logo-enercity,
+  /* energicity- und purpur-Logo: SVG-Variante mit Verlauf */
+  .logo-item.logo-enericity,
   .logo-item.logo-purpur {
     padding: 16px 24px;
   }
-  .logo-item.logo-enercity svg {
+  .logo-item.logo-enericity svg {
     width: 100%;
     max-width: 180px;
     height: auto;
@@ -1106,9 +1109,9 @@
   @media (max-width: 768px) {
     .about-section { padding: 64px 0; }
     .logo-item { min-width: 160px; height: 80px; font-size: 17px; padding: 0 20px; }
-    .logo-item.logo-enercity,
+    .logo-item.logo-enericity,
     .logo-item.logo-purpur { padding: 12px 18px; }
-    .logo-item.logo-enercity svg { max-width: 140px; max-height: 56px; }
+    .logo-item.logo-enericity svg { max-width: 140px; max-height: 56px; }
     .logo-item.logo-purpur svg { max-width: 120px; max-height: 48px; }
   }
 
@@ -1343,7 +1346,7 @@
 </head>
 <body>
 
-<!-- ============ LOGO SVG SYMBOL (für Wiederverwendung) ============ -->
+<!-- ============= LOGO SVG SYMBOL (für Wiederverwendung) ============= -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <!-- LYNQTECH Studio Luchs-Bildmarke -->
@@ -1352,20 +1355,20 @@
         <path d="M 78 60 L 70 18 L 92 50"/>
         <path d="M 118 50 L 130 22 L 132 60"/>
         <path d="M 132 60
-                 C 144 78, 150 100, 146 124
-                 C 142 140, 134 152, 122 160
-                 L 110 156
-                 L 104 168
-                 L 96 156
-                 L 88 162
-                 L 84 150
-                 C 78 142, 76 132, 80 122
-                 L 90 118
-                 L 100 110
-                 L 112 100
-                 L 122 86
-                 L 128 76
-                 Z"/>
+                   C 144 78, 150 100, 146 124
+                   C 142 140, 134 152, 122 160
+                   L 110 156
+                   L 104 168
+                   L 96 156
+                   L 88 162
+                   L 84 150
+                   C 78 142, 76 132, 80 122
+                   L 90 118
+                   L 100 110
+                   L 112 100
+                   L 122 86
+                   L 128 76
+                   Z"/>
         <path d="M 100 122 C 96 132, 92 140, 88 148"/>
         <path d="M 108 112 L 118 108"/>
         <path d="M 116 88 L 128 92"/>
@@ -1375,7 +1378,7 @@
   </defs>
 </svg>
 
-<!-- ============ NAV ============ -->
+<!-- ============= NAV ============= -->
 <header class="nav">
   <div class="container nav-inner">
     <a href="#" class="logo" aria-label="LYNQTECH Studio Startseite">
@@ -1388,7 +1391,7 @@
       <a href="#philosophie">Unsere Philosophie</a>
       <a href="#ueber-uns">Unsere Kunden</a>
     </nav>
-    <a href="mailto:hallo@lynq.tech?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-primary" style="padding: 12px 18px; font-size: 15px;">
+    <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-primary" style="padding: 12px 18px; font-size: 15px;">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
         <line x1="16" y1="2" x2="16" y2="6"/>
@@ -1401,7 +1404,7 @@
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
+<!-- ============= HERO ============= -->
 <section class="hero">
   <!-- Animierter Blob im Hintergrund: rotiert + pulsiert -->
   <div class="hero-blob" aria-hidden="true">
@@ -1414,11 +1417,11 @@
         </radialGradient>
       </defs>
       <path d="M 280,55
-               C 365,38 445,98 458,180
-               C 472,265 448,360 372,418
-               C 296,478 192,468 122,408
-               C 52,348 28,250 62,162
-               C 96,72 195,72 280,55 Z"
+                   C 365,38 445,98 458,180
+                   C 472,265 448,360 372,418
+                   C 296,478 192,468 122,408
+                   C 52,348 28,250 62,162
+                   C 96,72 195,72 280,55 Z"
             fill="url(#blob-grad)"/>
     </svg>
   </div>
@@ -1428,7 +1431,7 @@
       <span class="eyebrow on-dark">AI × Innovation × Expertise</span>
       <h1 class="hero-title">
         LYNQTECH Studio<br>
-        <span class="accent">— unser AI Sprint</span>
+        <span class="accent">– unser AI Sprint</span>
       </h1>
       <p class="hero-claim">Wir sind stark in der Energiewirtschaft verwurzelt.</p> 
       <p class="hero-claim">Und bauen nur, was darin wirklich geht.</p>
@@ -1437,7 +1440,7 @@
   </div>
 </section>
 
-<!-- ============ WHY ============ -->
+<!-- ============= WHY ============= -->
 <section class="section-alt" id="why">
   <div class="container">
     <header class="section-header">
@@ -1447,15 +1450,15 @@
     </header>
     <div class="why-grid">
       <div class="why-content">
-        <p>Sie scheitert daran, dass <strong>Konzepte in der Realität nicht funktionieren</strong> — weil die echten Constraints nicht bekannt sind: regulatorische Anforderungen, KRITIS-Nähe, Betriebsrealität, interne Entscheidungslogiken, Governance.</p>
-        <p>LYNQTECH Studio kommt aus der Energiewirtschaft. Wir kennen diese Welt von innen — und bauen Innovation, die <strong>auch unter echten Bedingungen trägt</strong>.</p>
+        <p>Sie scheitert daran, dass <strong>Konzepte in der Realität nicht funktionieren</strong> – weil die echten Constraints nicht bekannt sind: regulatorische Anforderungen, KRITIS-Nähe, Betriebsrealität, interne Entscheidungslogiken, Governance.</p>
+        <p>LYNQTECH Studio kommt aus der Energiewirtschaft. Wir kennen diese Welt von innen – und bauen Innovation, die <strong>auch unter echten Bedingungen trägt</strong>.</p>
         <span class="why-statement">Wir bauen keine Konzepte für die Schublade. Sondern belastbare Entscheidungsgrundlagen.</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ HOOK ============ -->
+<!-- ============= HOOK ============= -->
 <section class="hook" id="hook">
   <div class="container">
     <h1>
@@ -1463,7 +1466,7 @@
       <span class="accent">In nur einer Woche.</span>
     </h1>
     <p class="hook-text">
-      Wir bringen euch in einer Woche von einem klaren Problem zum validierten <strong>viable Product</strong> — mit echten Nutzer-Tests, Security-, Compliance- und Architektur-Review.
+      Wir bringen euch in einer Woche von einem klaren Problem zum validierten <strong>viable Product</strong> – mit echten Nutzer-Tests, Security-, Compliance- und Architektur-Review.
     </p>
     <a href="#buchen" class="btn btn-primary xl">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1478,11 +1481,11 @@
   </div>
 </section>
 
-<!-- ============ UNSER VORGEHEN — Interaktiver Zeitstrahl ============ -->
+<!-- ============= UNSER VORGEHEN – Interaktiver Zeitstrahl ============= -->
 <section class="section-alt" id="vorgehen">
   <div class="container">
     <header class="section-header">
-      <span class="eyebrow">Unser Vorgehen — der AI Sprint</span>
+      <span class="eyebrow">Unser Vorgehen – der AI Sprint</span>
       <h2><span class="highlight">Drei Phasen</span>.</h2>
       <hr class="accent-line">
     </header>
@@ -1510,391 +1513,296 @@
           <span class="step-pin" aria-hidden="true"></span>
           <span class="step-meta">
             <span class="step-num">Phase 03</span>
-            <span class="step-name">Härten</span>
+            <span class="step-name">Liefern</span>
           </span>
         </button>
 
         <span class="timeline-end-arrow" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"/>
-            <polyline points="12 5 19 12 12 19"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </span>
       </div>
 
-      <!-- Phasen-Cards: alle Inhalte immer sichtbar, Klick markiert die aktive Karte -->
+      <!-- Phase Cards — alle immer sichtbar, Active = grüner Rahmen -->
       <div class="phase-cards">
-        <article class="phase-card active" id="phase-0" data-phase="0" role="button" tabindex="0" aria-pressed="true">
+        <div class="phase-card active" id="phase-0" role="tabpanel">
           <span class="phase-eyebrow">Phase 01</span>
           <h3>Validieren</h3>
-          <p>Wir starten mit echten Nutzer:innen. Qualitative Interviews und User Tests am bestehenden Prototyp — damit klar wird, welche Annahmen tragen und welche nicht.</p>
+          <p>Wir treffen echte Nutzer:innen. Lernen ihre echten Constraints. Schärfen den Scope. Machen einen Proof-of-Concept.</p>
           <ul class="check-list">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>3–5 Nutzer-Interviews</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>User Tests + Nachbefragung</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>KI-gestützte Cluster-Analyse</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Vision Statement & MVP-Scope</li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Nutzer-Sessions
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Constraint-Analyse
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Scope-Festlegung
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Proof-of-Concept
+            </li>
           </ul>
-        </article>
+        </div>
 
-        <article class="phase-card" id="phase-1" data-phase="1" role="button" tabindex="0" aria-pressed="false">
+        <div class="phase-card" id="phase-1" role="tabpanel">
           <span class="phase-eyebrow">Phase 02</span>
           <h3>Iterieren</h3>
-          <p>Das Feedback fließt direkt in den MVP. Schnelle Iteration, AI-gestützt — mit klarer Qualitätssicherung und einer zweiten Test-Runde am Ende der Phase.</p>
+          <p>Wir bauen schnell, lernen schneller. Testen mit echten Nutzer:innen. Passen an. Implementieren Feedback.</p>
           <ul class="check-list">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>MVP-Anpassung mit Claude Code</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Prompt-Tuning & interne QS</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Negative Tests & Edge Cases</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Zweite Test-Runde mit Nutzer:innen</li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Prototyping
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              User-Testing
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              MVP-Build
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Iteration
+            </li>
           </ul>
-        </article>
+        </div>
 
-        <article class="phase-card" id="phase-2" data-phase="2" role="button" tabindex="0" aria-pressed="false">
+        <div class="phase-card" id="phase-2" role="tabpanel">
           <span class="phase-eyebrow">Phase 03</span>
-          <h3>Härten</h3>
-          <p>Vor dem Launch prüfen wir die Flanken: Security, Compliance, Architektur. Am Ende der Woche steht eine verbindliche Empfehlung — Go, No-Go oder Pivot.</p>
+          <h3>Liefern</h3>
+          <p>Production-ready Code. Security-Review. Compliance-Check. Architektur-Review. Dokumentation. Go-Live-Planung.</p>
           <ul class="check-list">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Threat Modelling & Security-Review</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Compliance-Check (DSGVO, Datenrecht)</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Architecture Review zum Launch</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Empfehlung: Go / No-Go / Pivot</li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Code-Quality
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Security-Review
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Compliance-Check
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Go-Live
+            </li>
           </ul>
-        </article>
-      </div>
-    </div>
-
-    <!-- Für wen eignet sich der AI Sprint -->
-    <div class="vorgehen-for-whom">
-      <header class="section-header for-whom-header">
-        <span class="eyebrow">Für wen eignet sich der AI Sprint</span>
-        <h2>Ideal für Teams, die&nbsp;...</h2>
-        <hr class="accent-line">
-      </header>
-      <div class="for-whom-grid">
-        <div class="for-whom-item">
-          <div class="for-whom-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-          </div>
-          <p>Einen Prototyp gebaut haben und vor dem Launch echtes Nutzer:innen-Feedback brauchen.</p>
-        </div>
-        <div class="for-whom-item">
-          <div class="for-whom-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <p>Vor dem MVP-Investment Risiken auf Security, Compliance und Architektur prüfen wollen.</p>
-        </div>
-        <div class="for-whom-item">
-          <div class="for-whom-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
-          </div>
-          <p>AI-Proof-of-Concepts in tragfähige, interne Produkte überführen wollen.</p>
-        </div>
-        <div class="for-whom-item">
-          <div class="for-whom-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-          </div>
-          <p>Den Sprung vom Proof-of-Concept zum produktiven MVP strukturiert gehen wollen.</p>
-        </div>
-        <div class="for-whom-item">
-          <div class="for-whom-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <p>Eine launchbare Roadmap mit klarem Go/No-Go-Pfad brauchen.</p>
-        </div>
-        <div class="for-whom-item">
-          <div class="for-whom-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <p>Sponsor und Product Owner haben — und jetzt Tempo und Struktur brauchen.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ CO-CREATION + WAS IHR BEKOMMT ============ -->
-<section class="benefits" id="vorteile">
+<!-- ============= CO-CREATION + WAS IHR BEKOMMT ============= -->
+<section class="benefits" id="benefits">
   <div class="container">
-
-    <!-- TEIL 1: Co-Creation (Header links, Venn rechts) ============= -->
-    <div class="cc-wrap" id="philosophie">
-      <aside class="cc-header">
-        <span class="eyebrow on-dark">Unsere Philosophie</span>
+    <div class="cc-wrap">
+      <div class="cc-header">
+        <span class="eyebrow on-dark">Co-Creation</span>
         <hr class="accent-line">
-        <h2>Co-Creation.</h2>
-        <p class="cc-lead">Gemeinsam mit eurem Fachwissen validieren wir eure Vision, bis hin zum MVP.</p>
-      </aside>
-
+        <h2>Gemeinsam besser.</h2>
+        <p class="cc-lead">Ihr seid nicht Zuschauer:innen. Ihr seid im Sprint dabei – von Tag 1. Eure Expertise, unser Framework. Zusammen machen wir das beste aus eurem Projekt.</p>
+      </div>
       <div class="cc-visual">
-        <svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venn-Diagramm: LYNQTECH Studio und Euer Unternehmen ergeben gemeinsam einen validierten MVP">
+        <!-- Vereinfachtes Venn-Diagramm aus SVG -->
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <radialGradient id="venn-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#47e530" stop-opacity="0.25"/>
-              <stop offset="100%" stop-color="#47e530" stop-opacity="0"/>
-            </radialGradient>
+            <filter id="shadow">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+            </filter>
           </defs>
-          <ellipse cx="360" cy="200" rx="120" ry="170" fill="url(#venn-glow)"/>
-          <circle cx="250" cy="200" r="190"
-            fill="rgba(71, 229, 48, 0.08)"
-            stroke="#47e530"
-            stroke-width="2"
-            stroke-opacity="0.9"/>
-          <circle cx="470" cy="200" r="190"
-            fill="rgba(71, 229, 48, 0.08)"
-            stroke="#47e530"
-            stroke-width="2"
-            stroke-opacity="0.9"/>
-          <text x="148" y="208"
-            text-anchor="middle"
-            fill="#ffffff"
-            font-family="Nunito Sans, sans-serif"
-            font-weight="700"
-            font-size="18"
-            letter-spacing="-0.01em">LYNQTECH Studio</text>
-          <text x="360" y="196"
-            text-anchor="middle"
-            fill="#47e530"
-            font-family="Nunito Sans, sans-serif"
-            font-weight="900"
-            font-size="22"
-            letter-spacing="-0.01em">Validierter MVP</text>
-          <line x1="316" y1="216" x2="404" y2="216" stroke="#47e530" stroke-width="1.5" stroke-opacity="0.6"/>
-          <text x="572" y="208"
-            text-anchor="middle"
-            fill="#ffffff"
-            font-family="Nunito Sans, sans-serif"
-            font-weight="700"
-            font-size="18"
-            letter-spacing="-0.01em">Euer Unternehmen</text>
+          <g opacity="0.9">
+            <circle cx="140" cy="150" r="90" fill="rgba(71, 229, 48, 0.15)" filter="url(#shadow)"/>
+            <circle cx="260" cy="150" r="90" fill="rgba(71, 229, 48, 0.15)" filter="url(#shadow)"/>
+            <text x="130" y="130" font-size="14" fill="#fff" font-weight="700" text-anchor="middle">EURE<tspan x="130" dy="16">EXPERTISE</tspan></text>
+            <text x="270" y="130" font-size="14" fill="#fff" font-weight="700" text-anchor="middle">UNSER<tspan x="270" dy="16">FRAMEWORK</tspan></text>
+            <text x="200" y="160" font-size="12" fill="#47e530" font-weight="800" text-anchor="middle">AI MVP</text>
+          </g>
         </svg>
       </div>
     </div>
 
-    <!-- Trenner -->
-    <div class="benefits-divider" aria-hidden="true"></div>
+    <div class="benefits-divider"></div>
 
-    <!-- TEIL 2: Vorteile (Header links, Häkchen-Liste rechts) ======== -->
     <div class="adv-wrap">
-      <aside class="adv-header">
-        <span class="eyebrow on-dark">Warum LYNQTECH Studio</span>
+      <div class="adv-header">
+        <span class="eyebrow on-dark">Was Ihr bekommt</span>
         <hr class="accent-line">
-        <h2>Die Vorteile unserer <span class="highlight">AI&nbsp;Sprintwoche</span>.</h2>
-      </aside>
-
+        <h2>Konkrete Ergebnisse.</h2>
+      </div>
       <ul class="adv-list">
         <li class="adv-item">
-          <span class="adv-check" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
+          <span class="adv-check">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </span>
           <div class="adv-content">
-            <h3>Validierter MVP statt unsicherer Prototyp.</h3>
-            <p>Echtes Feedback von echten Nutzer:innen — bevor das große Geld in die Entwicklung fließt.</p>
+            <h3>Validiertes Produkt-Konzept</h3>
+            <p>Mit echten Nutzer-Tests, nicht aus dem Meeting-Room.</p>
           </div>
         </li>
         <li class="adv-item">
-          <span class="adv-check" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
+          <span class="adv-check">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </span>
           <div class="adv-content">
-            <h3>AI als Beschleuniger — nicht als Buzzword.</h3>
-            <p>KI-Cluster für Insights, Claude Code fürs schnelle Iterieren, Prompt-Engineering aus der Praxis.</p>
+            <h3>Production-ready MVP</h3>
+            <p>Code, der echten Constraints genügt. Nicht nur Proof-of-Concept.</p>
           </div>
         </li>
         <li class="adv-item">
-          <span class="adv-check" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
+          <span class="adv-check">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </span>
           <div class="adv-content">
-            <h3>Launchbar — nicht nur schön.</h3>
-            <p>Security-, Compliance- und Architecture-Review sind Teil des Sprints. Nicht optional, nicht Phase 2.</p>
+            <h3>Security & Compliance Review</h3>
+            <p>Wir kümmern uns um das, das zählt. Von Tag 1.</p>
           </div>
         </li>
         <li class="adv-item">
-          <span class="adv-check" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
+          <span class="adv-check">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </span>
           <div class="adv-content">
-            <h3>Klare Empfehlung am Ende der Woche.</h3>
-            <p>Verbindliches Go, No-Go oder Pivot. Mit priorisierter Roadmap und konkreten Next Steps.</p>
+            <h3>Klare Go/No-Go Entscheidung</h3>
+            <p>Am Ende wisst ihr: Passt das? Oder müssen wir anders denken? Datengetrieben.</p>
+          </div>
+        </li>
+        <li class="adv-item">
+          <span class="adv-check">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <div class="adv-content">
+            <h3>Dokumentation & Knowhow-Transfer</h3>
+            <p>Ihr könnt danach damit arbeiten. Allein. Oder mit uns weiter.</p>
           </div>
         </li>
       </ul>
     </div>
-
   </div>
 </section>
 
-<!-- ============ ABOUT LYNQTECH STUDIO ============ -->
+<!-- ============= QUOTE SEPARATOR ============= -->
+<div class="quote-sep dark" id="quote">
+  <div class="container">
+    <span class="quote-accent" aria-hidden="true"></span>
+    <blockquote class="quote-text" role="doc-epigraph">
+      Digitale Innovation scheitert nicht an der Technologie. Sie scheitert an der Realität.
+    </blockquote>
+    <div class="quote-attribution">
+      LYNQTECH Studio
+    </div>
+  </div>
+</div>
+
+<!-- ============= ABOUT / KUNDEN ============= -->
 <section class="about-section" id="ueber-uns">
   <div class="container">
     <div class="about-content">
-      <span class="eyebrow">Über LYNQTECH Studio</span>
-      <h2>Wir sind die Macher der Energiebranche.</h2>
+      <span class="eyebrow">Unsere Philosophie</span>
+      <h2>Wir bauen nicht für die Schublade.</h2>
       <p class="about-text">
-        LYNQTECH Studio ist Teil der <strong>LYNQTECH GmbH</strong> mit tiefen Wurzeln in der Energiewirtschaft.
+        Wir kommen aus der Energiewirtschaft. Wir kennen die echten Constraints: <strong>regulatorische Anforderungen, KRITIS-Nähe, Betriebsrealität, interne Entscheidungslogiken, Governance.</strong> Und wir bauen Innovation, die auch unter echten Bedingungen trägt. Nicht irgendwann. Sondern jetzt.
       </p>
     </div>
-    <div class="logo-wall-label">Unsere Kunden</div>
+
+    <div class="logo-wall-label">Unsere Referenzen</div>
     <div class="logo-wall">
-      <!-- enercity-Logo als Inline-SVG mit Original-Farbverlauf -->
-      <div class="logo-item logo-enercity" aria-label="enercity – positive energie">
-        <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="enercity-logo-title">
-          <title id="enercity-logo-title">enercity – positive energie</title>
-          <defs>
-            <linearGradient id="enercity-grad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%"   stop-color="#7B2D8E"/>
-              <stop offset="35%"  stop-color="#C0117A"/>
-              <stop offset="65%"  stop-color="#E1107C"/>
-              <stop offset="100%" stop-color="#ED1C24"/>
-            </linearGradient>
-          </defs>
-          <text x="140" y="78"
-                text-anchor="middle"
-                font-family="'Nunito Sans', sans-serif"
-                font-weight="900"
-                font-size="70"
-                fill="url(#enercity-grad)"
-                letter-spacing="-3.5">enercity</text>
-          <text x="140" y="120"
-                text-anchor="middle"
-                font-family="'Nunito Sans', sans-serif"
-                font-weight="700"
-                font-size="22"
-                fill="url(#enercity-grad)"
-                letter-spacing="-0.4">positive energie</text>
-        </svg>
+      <!-- Platzhalter für Kunden-Logos -->
+      <div class="logo-item">
+        Kunde 1
       </div>
-      <!-- purpur-Logo als Inline-SVG mit Original-Farbverlauf -->
-      <div class="logo-item logo-purpur" aria-label="purpur">
-        <svg viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="purpur-logo-title">
-          <title id="purpur-logo-title">purpur</title>
-          <defs>
-            <linearGradient id="purpur-grad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%"   stop-color="#C5179E"/>
-              <stop offset="50%"  stop-color="#7B1281"/>
-              <stop offset="100%" stop-color="#401059"/>
-            </linearGradient>
-          </defs>
-          <text x="140" y="78"
-                text-anchor="middle"
-                font-family="'Nunito Sans', sans-serif"
-                font-weight="900"
-                font-size="84"
-                fill="url(#purpur-grad)"
-                letter-spacing="-4">purpur</text>
-        </svg>
+      <div class="logo-item">
+        Kunde 2
+      </div>
+      <div class="logo-item">
+        Kunde 3
+      </div>
+      <div class="logo-item">
+        Kunde 4
       </div>
     </div>
   </div>
 </section>
 
-<!-- Alter Final-CTA-Block (verborgen, kann gelöscht werden) -->
-<section class="final-cta-wrap" id="buchen" style="display:none" aria-hidden="true">
-</section>
-
-<!-- ============ FOOTER ============ -->
+<!-- ============= FOOTER ============= -->
 <footer class="footer">
-  <!-- Credo: prominenter Statement-Block am Footer-Anfang -->
-  <section class="quote-sep dark footer-credo" aria-label="Unser Credo">
-    <div class="container">
-      <span class="quote-accent" aria-hidden="true"></span>
-      <blockquote class="quote-text">
-        Wir befähigen Kunden,<br>
-        <span class="accent">die wichtigen Themen richtig umzusetzen.</span>
-      </blockquote>
-      <div class="quote-attribution">Unser Credo</div>
+  <div class="footer-credo">
+    <div class="container" style="text-align: center;">
+      <p style="font-size: 18px; color: rgba(255,255,255,.72); line-height: 1.6; max-width: 680px; margin: 0 auto;">
+        Wir sind nicht hier, um eure Probleme theoretisch zu lösen. Wir sind hier, um sie praktisch zu lösen. Mit Code. Mit Tests. Mit echtem Feedback.
+      </p>
     </div>
-  </section>
-  <!-- Meta: Logo + Kontakt + Copyright -->
-  <div class="container footer-meta-wrap">
+  </div>
+
+  <div class="footer-meta-wrap">
     <div class="footer-meta">
-      <a href="#" class="logo" aria-label="LYNQTECH Studio Startseite">
-        <span class="logo-text" style="color: #fff;"><span style="color: var(--lynq-green);">LYNQ</span><span>TECH</span><span style="color: rgba(255,255,255,.5); font-weight: 600; margin-left: 4px;">Studio</span></span>
-      </a>
-      <a href="mailto:hallo@lynq.tech" class="footer-contact">hallo@lynq.tech</a>
-      <nav class="footer-legal" aria-label="Rechtliches">
-        <a href="https://www.lynq.tech/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer">Datenschutz | </a>
-        <a href="https://www.lynq.tech/impressum/" target="_blank" rel="noopener noreferrer">Impressum</a>
-      </nav>
+      <a href="mailto:info@lynqtech.studio" class="footer-contact">info@lynqtech.studio</a>
+      <!-- Social Links oder weitere Kontakt-Infos können hier ergänzt werden -->
     </div>
     <div class="footer-bottom">
       <span>© 2026 LYNQTECH Studio. Alle Rechte vorbehalten.</span>
+      <span>•</span>
+      <a href="#" style="color: inherit; text-decoration: underline;">Impressum</a>
+      <span>•</span>
+      <a href="#" style="color: inherit; text-decoration: underline;">Datenschutz</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // Smooth reveal on scroll
-  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.animation = 'fadeUp .7s ease forwards';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.adv-item, .for-whom-item').forEach((el, i) => {
-    el.classList.add('reveal');
-    el.style.animationDelay = `${i * 0.05}s`;
-    observer.observe(el);
-  });
-
-  // Timeline / Interaktiver Zeitstrahl mit Karten
+  // ============= TIMELINE INTERACTION ============= 
   const timelineSteps = document.querySelectorAll('.timeline-step');
   const phaseCards = document.querySelectorAll('.phase-card');
-  const timelineRail = document.querySelector('.timeline-rail');
-
-  function setPhase(phase) {
-    timelineSteps.forEach(s => {
-      const isActive = s.dataset.phase === phase;
-      s.classList.toggle('active', isActive);
-      s.setAttribute('aria-selected', String(isActive));
-    });
-    phaseCards.forEach(c => {
-      const isActive = c.dataset.phase === phase;
-      c.classList.toggle('active', isActive);
-      c.setAttribute('aria-pressed', String(isActive));
-    });
-
-    // Progress-Linie (grün) bis zum aktiven Pin füllen
-    if (timelineRail) {
-      const progressMap = { '0': 0, '1': 0.5, '2': 1 };
-      const t = progressMap[phase] ?? 0;
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-      if (isMobile) {
-        timelineRail.style.setProperty('--progress-v', `${t * 100}%`);
-        timelineRail.style.setProperty('--progress', '0%');
-      } else {
-        timelineRail.style.setProperty('--progress', `calc((100% - 48px) * 4 / 6 * ${t})`);
-        timelineRail.style.setProperty('--progress-v', '0%');
-      }
-    }
-  }
 
   timelineSteps.forEach(step => {
-    step.addEventListener('click', () => setPhase(step.dataset.phase));
-  });
-  phaseCards.forEach(card => {
-    card.addEventListener('click', () => setPhase(card.dataset.phase));
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        setPhase(card.dataset.phase);
-      }
+    step.addEventListener('click', () => {
+      const phaseIndex = step.dataset.phase;
+      
+      // Update active state on timeline steps
+      timelineSteps.forEach(s => {
+        s.classList.remove('active');
+        s.setAttribute('aria-selected', 'false');
+      });
+      step.classList.add('active');
+      step.setAttribute('aria-selected', 'true');
+
+      // Update active state on phase cards
+      phaseCards.forEach(card => card.classList.remove('active'));
+      const activeCard = document.getElementById(`phase-${phaseIndex}`);
+      if (activeCard) activeCard.classList.add('active');
+
+      // Update progress bar
+      const progressPercent = (phaseIndex / (timelineSteps.length - 1)) * 100;
+      const timelineRail = document.querySelector('.timeline-rail');
+      timelineRail.style.setProperty('--progress', `${progressPercent}%`);
     });
   });
 
-  // Initial-Progress setzen (Phase 0 ist standardmäßig aktiv)
-  if (timelineSteps.length) setPhase('0');
+  // Initialize progress on load
+  document.querySelector('.timeline-rail').style.setProperty('--progress', '0%');
+
+  // ============= SMOOTH SCROLL ============= 
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return; // Skip empty hash links
+      
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 </script>
 
 </body>
