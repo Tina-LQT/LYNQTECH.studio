@@ -122,6 +122,15 @@
   @media (min-width: 900px) {
     .nav-links { display: flex; }
   }
+  /* Nav responsive */
+  @media (max-width: 899px) {
+    .nav-inner { height: 76px; }
+    .logo-img { height: 64px; }
+  }
+  @media (max-width: 480px) {
+    .nav-inner { height: 64px; }
+    .logo-img { height: 52px; }
+  }
 
   /* ------------ BUTTONS ------------ */
   .btn {
@@ -757,7 +766,8 @@
   .phase-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 0;
   }
   .phase-card {
     background: #fff;
@@ -768,8 +778,11 @@
     transition: all .25s ease;
     text-align: left;
     font-family: var(--font-sans);
-    display: flex;
-    flex-direction: column;
+    /* Subgrid: 4 Zeilen pro Karte (Eyebrow, h3, p, checklist) */
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+    align-items: start;
     position: relative;
     outline: none;
   }
@@ -816,17 +829,35 @@
     font-size: 14px;
   }
 
-  /* Mobile: Cards stapeln */
-  @media (max-width: 768px) {
+  /* Tablet: 2 Spalten, kein Subgrid */
+  @media (max-width: 960px) and (min-width: 601px) {
+    .phase-cards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .phase-card {
+      display: flex;
+      flex-direction: column;
+      grid-row: auto;
+    }
+  }
+
+  /* Mobile: 1 Spalte, kein Subgrid */
+  @media (max-width: 600px) {
     .phase-cards {
       grid-template-columns: 1fr;
       gap: 16px;
     }
-    .phase-card { padding: 28px 24px; }
+    .phase-card {
+      display: flex;
+      flex-direction: column;
+      grid-row: auto;
+      padding: 24px 20px;
+    }
   }
 
-  /* Mobile: Zeitstrahl vertikal */
-  @media (max-width: 768px) {
+  /* Zeitstrahl + Cards: vertikal ab 960px */
+  @media (max-width: 960px) {
     .timeline-rail {
       flex-direction: column;
       align-items: flex-start;
