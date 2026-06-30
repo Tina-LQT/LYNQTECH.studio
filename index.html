@@ -272,7 +272,7 @@
       linear-gradient(rgba(12, 49, 64, .70) 0%, rgba(6, 32, 42, .62) 100%),
       url('hero-bg.png') 50% 15% / cover no-repeat;
     color: #fff;
-    padding: 96px 0 112px;
+    min-height: calc(100svh - 96px);
     overflow: hidden;
   }
   .hero::before {
@@ -392,7 +392,7 @@
       right: -30%;
       opacity: .8;
     }
-    .hero { padding: 64px 0 80px; }
+    .hero { min-height: calc(100svh - 64px); }
   }
 
   /* ------------ HOOK SECTION ------------ */
@@ -1439,7 +1439,7 @@
   .hero-banner-wrap {
     position: relative;
     z-index: 10;
-    margin-top: -48px;
+    margin-top: -96px;
   }
   .hero-banner-card {
     width: calc(100% / 3);
@@ -1477,19 +1477,23 @@
     width: fit-content;
   }
   /* #why padding compensates for the card hanging into the section */
-  #why { padding-top: 220px; }
+  #why { padding-top: 260px; }
   @media (max-width: 900px) {
     .hero-banner-card { width: 50%; }
-    #why { padding-top: 240px; }
+    #why { padding-top: 280px; }
   }
   @media (max-width: 640px) {
-    .hero-banner-wrap { margin-top: -32px; }
+    .hero-banner-wrap { margin-top: -56px; }
     .hero-banner-card {
       width: 100%;
       aspect-ratio: auto;
       padding: 28px;
     }
-    #why { padding-top: 80px; }
+    #why { padding-top: 100px; }
+  }
+  /* Tablet: Hero-Höhe angepasst an kleinere Nav */
+  @media (max-width: 899px) {
+    .hero { min-height: calc(100svh - 76px); }
   }
 </style>
 </head>
