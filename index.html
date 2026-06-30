@@ -1375,8 +1375,19 @@
   }
   .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
+  }
+  .testimonial-card-center {
+    grid-column: 2;
+  }
+  @media (max-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+    .testimonial-card-center {
+      grid-column: 1;
+    }
   }
   .testimonial-card {
     background: linear-gradient(135deg, #14293a 0%, #1e4535 55%, #2d5c38 100%);
@@ -1535,7 +1546,7 @@
 <header class="nav">
   <div class="container nav-inner">
     <a href="#" class="logo" aria-label="LYNQTECH Studio Startseite">
-      <img src="Designer (15).png" alt="LYNQTECH Studio" class="logo-img">
+      <img src="logo.png" alt="LYNQTECH Studio" class="logo-img">
     </a>
     <nav class="nav-links" aria-label="Hauptnavigation">
       <a href="#why">Unser Why</a>
@@ -1770,7 +1781,7 @@ Schnelle Umsetzung der Kernfunktionen
     </header>
     <div class="testimonials-grid">
 
-      <div class="testimonial-card">
+      <div class="testimonial-card testimonial-card-center">
         <img src="testimonial-johannes.jpg" alt="Johannes S." class="testimonial-avatar">
         <p class="testimonial-name"><em>Johannes S.</em></p>
         <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
