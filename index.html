@@ -397,7 +397,18 @@
 
   /* ------------ HOOK SECTION ------------ */
   .hook {
-    background: var(--lynq-blue);
+    background:
+      linear-gradient(to bottom,
+        rgba(250,251,252,.48) 0px,
+        rgba(250,251,252,.24) 22px,
+        rgba(250,251,252,.08) 50px,
+        rgba(250,251,252,0)   80px,
+        rgba(250,251,252,0)   calc(100% - 80px),
+        rgba(250,251,252,.08) calc(100% - 50px),
+        rgba(250,251,252,.24) calc(100% - 22px),
+        rgba(250,251,252,.48) 100%
+      ),
+      var(--lynq-blue);
     color: #fff;
     text-align: center;
     padding: 120px 0 120px;
@@ -905,7 +916,18 @@
 
   /* ------------ CO-CREATION + WAS IHR BEKOMMT ------------ */
   .benefits {
-    background: var(--lynq-blue);
+    background:
+      linear-gradient(to bottom,
+        rgba(250,251,252,.48) 0px,
+        rgba(250,251,252,.24) 22px,
+        rgba(250,251,252,.08) 50px,
+        rgba(250,251,252,0)   80px,
+        rgba(250,251,252,0)   calc(100% - 80px),
+        rgba(250,251,252,.08) calc(100% - 50px),
+        rgba(250,251,252,.24) calc(100% - 22px),
+        rgba(250,251,252,.48) 100%
+      ),
+      var(--lynq-blue);
     color: #fff;
     position: relative;
     overflow: hidden;
@@ -1211,7 +1233,14 @@
     overflow: hidden;
   }
   .quote-sep.dark {
-    background: var(--lynq-blue);
+    background:
+      linear-gradient(to bottom,
+        rgba(250,251,252,.48) 0px,
+        rgba(250,251,252,.24) 22px,
+        rgba(250,251,252,.08) 50px,
+        rgba(250,251,252,0)   80px
+      ),
+      var(--lynq-blue);
     color: #fff;
   }
   .quote-sep.dark::before {
