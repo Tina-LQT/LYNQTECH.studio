@@ -1524,6 +1524,12 @@
     font-weight: 600;
     opacity: .7;
   }
+  .badge-icon {
+    height: 36px;
+    width: auto;
+    flex-shrink: 0;
+    display: block;
+  }
   .banner-rating-label {
     font-size: 13px;
     font-weight: 700;
@@ -1647,8 +1653,37 @@
       <span class="eyebrow on-dark">UNSER AI-SPRINT</span>
       <p class="hero-banner-title">LYNQTECH STUDIO</p>
       <div class="banner-rating-pill">
-        <span class="banner-rating-score">100%</span>
-        <span class="banner-rating-label">Weiterempfehlung</span>
+        <svg class="badge-icon" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-label="100%">
+          <!-- Ribbon tails (behind circle) -->
+          <path d="M 33,82 L 13,114 L 32,114 L 50,96 L 68,114 L 87,114 L 67,82 Z" fill="white"/>
+          <!-- Outer lime-green circle -->
+          <circle cx="50" cy="50" r="47" fill="#6ad42a"/>
+          <!-- 14 white scallop circles at ring-radius 37, each r=10 -->
+          <circle cx="87"  cy="50"   r="10" fill="white"/>
+          <circle cx="83.3" cy="66.1" r="10" fill="white"/>
+          <circle cx="73.1" cy="78.9" r="10" fill="white"/>
+          <circle cx="58.2" cy="86.1" r="10" fill="white"/>
+          <circle cx="41.8" cy="86.1" r="10" fill="white"/>
+          <circle cx="26.9" cy="78.9" r="10" fill="white"/>
+          <circle cx="16.7" cy="66.1" r="10" fill="white"/>
+          <circle cx="13"   cy="50"   r="10" fill="white"/>
+          <circle cx="16.7" cy="33.9" r="10" fill="white"/>
+          <circle cx="26.9" cy="21.1" r="10" fill="white"/>
+          <circle cx="41.8" cy="13.9" r="10" fill="white"/>
+          <circle cx="58.2" cy="13.9" r="10" fill="white"/>
+          <circle cx="73.1" cy="21.1" r="10" fill="white"/>
+          <circle cx="83.3" cy="33.9" r="10" fill="white"/>
+          <!-- Green cover circle — hides inner parts of scallops, exposes only bumps -->
+          <circle cx="50" cy="50" r="30" fill="#6ad42a"/>
+          <!-- Inner darker green circle -->
+          <circle cx="50" cy="50" r="24" fill="#3d8c19"/>
+          <!-- 100% label -->
+          <text x="50" y="50"
+                text-anchor="middle" dominant-baseline="central"
+                font-family="'Nunito Sans', Arial, sans-serif"
+                font-weight="800" font-size="22" fill="#1a4a08">100%</text>
+        </svg>
+        <span class="banner-rating-label">Weiterempfehlung unserer Teilnehmer</span>
       </div>
     </div>
   </div>
@@ -1701,7 +1736,7 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
   <div class="container">
     <header class="section-header">
       <span class="eyebrow">Unser Vorgehen</span>
-      <h2><span class="highlight">Wir gewinnen Geschwindigkeit mit dem Einsatz von KI.</span></h2>
+      <h2>Wir gewinnen Geschwindigkeit mit dem <span class="highlight">Einsatz von KI.</span></h2>
       <hr class="accent-line">
     </header>
 
@@ -1904,7 +1939,7 @@ Schnelle Umsetzung der Kernfunktionen
 
 
 <!-- ============= ABOUT / KUNDEN ============= -->
-<section class="about-section" id="ueber-uns">
+<section class="about-section" id="philosophie">
   <div class="container">
     <div class="about-content">
       <span class="eyebrow">Unsere Philosophie</span>
