@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LYNQTECH Studio AI Sprint — Vom Prototyp zum tragfähigen MVP in einer Woche | LYNQTECH Studio</title>
-<meta name="description" content="Ihr habt einen Prototyp. Wir validieren ihn mit echten Nutzer:innen, schärfen den Scope und machen in einer Woche ein viable Product daraus — inklusive echten Nutzer-Tests, Security-, Compliance- und Architektur-Review.">
+<meta name="description" content="Sie haben einen Prototyp. Wir validieren ihn mit echten Nutzer:innen, schärfen den Scope und machen in einer Woche ein viable Product daraus — inklusive echten Nutzer-Tests, Security-, Compliance- und Architektur-Review.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -124,12 +124,14 @@
   }
   /* Nav responsive */
   @media (max-width: 899px) {
-    .nav-inner { height: 76px; }
-    .logo-img { height: 64px; }
+    .nav-inner { height: 72px; }
+    .logo-img { height: 56px; }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 560px) {
     .nav-inner { height: 64px; }
-    .logo-img { height: 52px; }
+    .logo-img { height: 46px; }
+    .nav-cta-label { display: none; }
+    .nav-cta { padding: 10px 12px !important; gap: 0; }
   }
 
   /* ------------ BUTTONS ------------ */
@@ -274,6 +276,8 @@
     color: #fff;
     min-height: calc((100svh - 96px) * 2 / 3);
     overflow: hidden;
+    display: flex;
+    align-items: center;
   }
   .hero::before {
     content: "";
@@ -299,16 +303,14 @@
     pointer-events: none;
   }
 
-  /* Hero Content (Titel, Claim, Sub-Claim) */
+  /* Hero Content (Titel, Claim, Beschreibung, CTA) */
   .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 920px;
-    margin: 0 auto;
+    max-width: 620px;
+    margin: 0;
     text-align: left;
-  }
-  .hero-content .eyebrow {
-    margin-bottom: 28px;
+    padding: 56px 0;
   }
   .hero-title {
     color: #fff;
@@ -316,7 +318,7 @@
     font-weight: 800;
     line-height: 1.02;
     letter-spacing: -0.025em;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
   }
   .hero-title .accent {
     background: linear-gradient(135deg, #47e530 0%, #8fff7a 100%);
@@ -325,20 +327,32 @@
     -webkit-text-fill-color: transparent;
   }
   .hero-claim {
-    font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
     font-weight: 700;
     color: #fff;
     line-height: 1.4;
-    margin-bottom: 14px;
-    max-width: 780px;
+    margin-bottom: 16px;
     letter-spacing: -0.01em;
   }
-  .hero-subclaim {
-    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
-    color: var(--lynq-green);
-    font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: -0.005em;
+  .hero-desc {
+    font-size: clamp(0.9375rem, 1.1vw, 1rem);
+    color: rgba(255,255,255,.72);
+    line-height: 1.65;
+  }
+  .hero-cta {
+    margin-top: 36px;
+  }
+  .btn-light {
+    background: rgba(255,255,255,.96);
+    color: var(--lynq-blue);
+    padding: 14px 26px;
+    font-size: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.18);
+  }
+  .btn-light:hover {
+    background: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(0,0,0,.28);
   }
 
   /* Animierter Blob im Hero-Hintergrund */
@@ -385,6 +399,9 @@
       filter: blur(24px);
     }
   }
+  @media (max-width: 899px) {
+    .hero-content { max-width: 100%; padding: 48px 0; }
+  }
   @media (max-width: 640px) {
     .hero-blob {
       width: 440px;
@@ -393,6 +410,8 @@
       opacity: .8;
     }
     .hero { min-height: calc((100svh - 64px) * 2 / 3); }
+    .hero-content { padding: 40px 0; }
+    .hero-cta { margin-top: 28px; }
   }
 
   /* ------------ HOOK SECTION ------------ */
@@ -410,7 +429,7 @@
       ),
       var(--lynq-blue);
     color: #fff;
-    text-align: center;
+    text-align: left;
     padding: 120px 0 120px;
     position: relative;
     overflow: hidden;
@@ -444,7 +463,7 @@
   }
   .hook h1 {
     max-width: 900px;
-    margin: 0 auto 28px;
+    margin: 0 0 28px;
     color: #fff;
   }
   .hook h1 .accent {
@@ -457,7 +476,7 @@
     font-size: clamp(1.05rem, 1.5vw, 1.25rem);
     color: var(--lynq-text-on-dark-muted);
     max-width: 640px;
-    margin: 0 auto 40px;
+    margin: 0 0 40px;
     line-height: 1.6;
   }
   .hook-text strong {
@@ -470,9 +489,8 @@
 
   /* ------------ SECTIONS ------------ */
   section { padding: 96px 0; }
-  @media (max-width: 768px) {
-    section { padding: 64px 0; }
-  }
+  @media (max-width: 768px) { section { padding: 64px 0; } }
+  @media (max-width: 480px) { section { padding: 48px 0; } }
   .section-light { background: var(--lynq-bg); }
   .section-alt { background: var(--lynq-surface-1); }
 
@@ -644,136 +662,71 @@
     margin-top: 2px;
   }
 
-  /* ------------ TIMELINE / VORGEHEN ------------ */
-  .timeline {
-    max-width: 940px;
-    margin: 0 auto;
-  }
-
-  .timeline-rail {
+  /* ------------ STEP BAR / VORGEHEN ------------ */
+  .step-bar {
     position: relative;
     display: flex;
     align-items: flex-start;
-    padding: 8px 0 56px;
+    margin-bottom: 48px;
   }
-
-  /* Hintergrundlinie (geht von Mitte erster Pin bis kurz vor den Pfeil) */
-  .timeline-rail::before {
+  /* Thin gray connecting line from dot-1 center to dot-3 center */
+  .step-bar::before {
     content: "";
     position: absolute;
-    top: 19px;
-    left: calc((100% - 48px) / 6);
-    right: 48px;
-    height: 2px;
+    top: 10px; /* = half of 20px dot */
+    left: calc((100% - 28px) / 6); /* center of first flex:1 item */
+    right: 28px; /* stops at arrow start */
+    height: 1px;
     background: var(--lynq-border);
     z-index: 0;
   }
-
-  /* Grüne Progress-Linie bis zum aktiven Pin */
-  .timeline-rail::after {
-    content: "";
-    position: absolute;
-    top: 19px;
-    left: calc((100% - 48px) / 6);
-    width: var(--progress, 0%);
-    height: 2px;
-    background: var(--lynq-green);
-    transition: width .5s ease;
-    z-index: 0;
-  }
-
-  .timeline-step {
+  .step-bar-item {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
-    padding: 0 8px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-family: var(--font-sans);
-    transition: transform .2s ease;
+    text-align: center;
     position: relative;
     z-index: 1;
   }
-  .timeline-step:hover { transform: translateY(-2px); }
-  .timeline-step:focus-visible {
-    outline: 2px solid var(--lynq-green);
-    outline-offset: 8px;
-    border-radius: var(--r);
-  }
-
-  .step-pin {
-    position: relative;
-    width: 24px;
-    height: 24px;
+  .step-dot {
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background: #fff;
-    border: 3px solid var(--lynq-border);
-    transition: all .25s ease;
+    background: var(--lynq-green);
+    box-shadow: 0 0 0 6px rgba(71, 229, 48, .22);
+    margin-bottom: 10px;
     flex-shrink: 0;
   }
-  .timeline-step:hover .step-pin {
-    border-color: var(--lynq-green);
-  }
-  .timeline-step.active .step-pin {
-    border-color: var(--lynq-green);
-    background: var(--lynq-green);
-    box-shadow: 0 0 0 6px rgba(71, 229, 48, .2);
-  }
-  .timeline-step.active .step-pin::after {
-    content: "";
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    border: 2px solid var(--lynq-green);
-    animation: pinPulse 2.2s ease-out infinite;
-  }
-  @keyframes pinPulse {
-    0%   { transform: scale(.6); opacity: .8; }
-    100% { transform: scale(2.4); opacity: 0; }
-  }
-
-  .step-meta {
+  .step-bar-text {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    align-items: center;
-    text-align: center;
+    gap: 2px;
   }
-  .step-num {
+  .step-bar-label {
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--lynq-text-tertiary);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    transition: color .2s ease;
-  }
-  .step-name {
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
-    font-weight: 800;
-    color: var(--lynq-text-secondary);
-    letter-spacing: -0.01em;
-    transition: color .2s ease;
-  }
-  .timeline-step:hover .step-name { color: var(--lynq-blue); }
-  .timeline-step.active .step-name { color: var(--lynq-blue); }
-  .timeline-step.active .step-num { color: var(--lynq-green); }
-
-  .timeline-end-arrow {
-    flex: 0 0 48px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 24px;
     color: var(--lynq-green);
-    z-index: 1;
-    position: relative;
+  }
+  .step-bar-name {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    font-weight: 800;
+    color: var(--lynq-blue);
+    letter-spacing: -0.01em;
+  }
+  /* Arrow: 28px wide, vertically centered on dot (dot center = 10px, SVG 16px → top offset = 10 - 8 = 2px) */
+  .step-bar-arrow {
+    flex: 0 0 28px;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 2px;
+    color: var(--lynq-green);
   }
 
-  /* Phase Cards — alle immer sichtbar, Active = grüner Rahmen */
+  /* Phase Cards — immer alle sichtbar */
   .phase-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -785,43 +738,23 @@
     border: 2px solid var(--lynq-border);
     border-radius: var(--r-lg);
     padding: 32px 28px;
-    cursor: pointer;
-    transition: all .25s ease;
     text-align: left;
     font-family: var(--font-sans);
-    /* Subgrid: 4 Zeilen pro Karte (Eyebrow, h3, p, checklist) */
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 4;
     align-items: start;
-    position: relative;
-    outline: none;
-  }
-  .phase-card:hover {
-    border-color: rgba(71, 229, 48, .5);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-  }
-  .phase-card.active {
-    border-color: var(--lynq-green);
-    box-shadow: 0 12px 32px -8px rgba(71, 229, 48, .28), 0 0 0 4px rgba(71, 229, 48, .08);
-  }
-  .phase-card:focus-visible {
-    outline: 2px solid var(--lynq-green);
-    outline-offset: 4px;
   }
   .phase-eyebrow {
     display: inline-block;
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--lynq-text-tertiary);
+    color: var(--lynq-green);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: 14px;
-    transition: color .2s ease;
   }
-  .phase-card.active .phase-eyebrow { color: var(--lynq-green); }
   .phase-card h3 {
     font-size: 1.5rem;
     margin-bottom: 12px;
@@ -833,85 +766,28 @@
     font-size: 15px;
     line-height: 1.55;
   }
-  .phase-card .check-list {
-    margin-top: 0;
-  }
-  .phase-card .check-list li {
-    font-size: 14px;
-  }
+  .phase-card .check-list { margin-top: 0; }
+  .phase-card .check-list li { font-size: 14px; }
 
-  /* Tablet: 2 Spalten, kein Subgrid */
   @media (max-width: 960px) and (min-width: 601px) {
-    .phase-cards {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-    .phase-card {
-      display: flex;
-      flex-direction: column;
-      grid-row: auto;
-    }
+    .step-bar { flex-direction: column; gap: 20px; margin-bottom: 36px; }
+    .step-bar::before { display: none; }
+    .step-bar-item { flex-direction: row; text-align: left; gap: 14px; align-items: center; }
+    .step-dot { margin-bottom: 0; flex-shrink: 0; }
+    .step-bar-arrow { display: none; }
+    .phase-cards { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .phase-card { display: flex; flex-direction: column; grid-row: auto; }
   }
-
-  /* Mobile: 1 Spalte, kein Subgrid */
   @media (max-width: 600px) {
-    .phase-cards {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    .phase-card {
-      display: flex;
-      flex-direction: column;
-      grid-row: auto;
-      padding: 24px 20px;
-    }
-  }
-
-  /* Zeitstrahl + Cards: vertikal ab 960px */
-  @media (max-width: 960px) {
-    .timeline-rail {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 28px;
-      padding: 8px 0 40px;
-    }
-    .timeline-rail::before {
-      top: 20px;
-      bottom: 56px;
-      left: 11px;
-      right: auto;
-      width: 2px;
-      height: auto;
-    }
-    .timeline-rail::after {
-      top: 20px;
-      left: 11px;
-      width: 2px;
-      height: var(--progress-v, 0%);
-      transition: height .5s ease;
-    }
-    .timeline-step {
-      flex: 0 0 auto;
-      flex-direction: row;
-      align-items: center;
-      gap: 18px;
-      padding: 0;
-      width: 100%;
-      text-align: left;
-    }
-    .timeline-step:hover { transform: translateX(4px); }
-    .step-meta {
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-    }
-    .timeline-end-arrow {
-      flex: 0 0 auto;
-      transform: rotate(90deg);
-      align-self: center;
-      margin-top: 4px;
-    }
-    .phase-content { padding: 28px 24px; }
+    .step-bar { flex-direction: column; gap: 16px; margin-bottom: 32px; }
+    .step-bar::before { display: none; }
+    .step-bar-item { flex-direction: row; text-align: left; gap: 12px; align-items: center; }
+    .step-dot { margin-bottom: 0; flex-shrink: 0; }
+    .step-bar-text { gap: 2px; }
+    .step-bar-name { font-size: 1rem; }
+    .step-bar-arrow { display: none; }
+    .phase-cards { grid-template-columns: 1fr; gap: 14px; }
+    .phase-card { display: flex; flex-direction: column; grid-row: auto; padding: 22px 18px; }
   }
 
   /* ------------ CO-CREATION + WAS IHR BEKOMMT ------------ */
@@ -952,8 +828,21 @@
     background: radial-gradient(circle, rgba(71, 229, 48, .06) 0%, transparent 60%);
     pointer-events: none;
   }
-  .benefits .container { position: relative; z-index: 1; }
+  .benefits .container { position: relative; z-index: 1; padding: 96px 0; }
   .benefits .section-header h2 { color: #fff; }
+  .hook-intro { padding-bottom: 16px; }
+  .hook-intro h1 {
+    color: #fff;
+    max-width: 900px;
+    margin: 0 0 36px;
+    letter-spacing: -0.025em;
+  }
+  .hook-intro h1 .accent {
+    background: linear-gradient(135deg, #47e530 0%, #8fff7a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
   /* Co-Creation + Vorteile: Split-Layout (Header links sticky, Content rechts) */
   .cc-wrap,
@@ -1084,11 +973,11 @@
   .about-section {
     background: var(--lynq-surface-1);
     padding: 96px 0;
-    text-align: center;
+    text-align: left;
   }
   .about-content {
     max-width: 720px;
-    margin: 0 auto 56px;
+    margin: 0 0 56px;
   }
   .about-section .eyebrow {
     margin-bottom: 12px;
@@ -1100,6 +989,9 @@
     font-size: 18px;
     color: var(--lynq-text-secondary);
     line-height: 1.6;
+  }
+  .about-text + .about-text {
+    margin-top: 1.5rem;
   }
   .about-text strong {
     color: var(--lynq-blue);
@@ -1260,7 +1152,7 @@
   }
   .quote-sep .container {
     max-width: 920px;
-    text-align: center;
+    text-align: left;
     position: relative;
     z-index: 1;
   }
@@ -1270,7 +1162,7 @@
     height: 4px;
     background: var(--lynq-green);
     border-radius: var(--r-full);
-    margin: 0 auto 32px;
+    margin: 0 0 32px;
     box-shadow: 0 0 16px rgba(71, 229, 48, .4);
   }
   .quote-text {
@@ -1397,10 +1289,10 @@
   .testimonials {
     background: var(--lynq-surface-1);
     padding: 96px 0;
-    text-align: center;
+    text-align: left;
   }
   .testimonials .section-header {
-    margin: 0 auto 56px;
+    margin: 0 0 56px;
   }
   .testimonials-grid {
     display: grid;
@@ -1408,14 +1300,15 @@
     gap: 28px;
   }
   .testimonial-card-center {
-    grid-column: 2;
+    padding: 56px 36px 52px;
+    box-shadow: 0 20px 56px -8px rgba(0,0,0,.48);
   }
   @media (max-width: 768px) {
     .testimonials-grid {
       grid-template-columns: 1fr;
     }
     .testimonial-card-center {
-      grid-column: 1;
+      padding: 44px 36px 40px;
     }
   }
   .testimonial-card {
@@ -1475,88 +1368,6 @@
     }
   }
 
-  /* ------------ HERO OVERLAP BANNER ------------ */
-  .hero-banner-wrap {
-    position: relative;
-    z-index: 10;
-    margin-top: -96px;
-  }
-  .hero-banner-card {
-    width: calc(100% / 3);
-    aspect-ratio: 2 / 1;
-    background: linear-gradient(135deg, #0c2e3c 0%, #163c2c 55%, #1e5230 100%);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-radius: var(--r-xl);
-    padding: 40px;
-    box-shadow: 0 8px 48px -8px rgba(0, 0, 0, .45), 0 24px 64px -16px rgba(12, 49, 64, .32), inset 0 0 0 1px rgba(255,255,255,.06);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 14px;
-  }
-  .hero-banner-title {
-    font-size: clamp(1.625rem, 3vw, 2.25rem);
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: -0.025em;
-    line-height: 1.05;
-  }
-  .banner-rating-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,.14);
-    border: 1px solid rgba(255,255,255,.24);
-    border-radius: var(--r-full);
-    padding: 8px 18px 8px 14px;
-    color: #fff;
-    width: fit-content;
-  }
-  .banner-rating-score {
-    font-size: 19px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-  .banner-rating-score span {
-    font-size: 13px;
-    font-weight: 600;
-    opacity: .7;
-  }
-  .badge-icon {
-    height: 36px;
-    width: auto;
-    flex-shrink: 0;
-    display: block;
-  }
-  .banner-rating-label {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    opacity: .9;
-  }
-  .banner-rating-stars {
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: #fff;
-    opacity: .9;
-  }
-  /* #why padding compensates for the card hanging into the section */
-  #why { padding-top: 130px; }
-  @media (max-width: 900px) {
-    .hero-banner-card { width: 50%; }
-    #why { padding-top: 140px; }
-  }
-  @media (max-width: 640px) {
-    .hero-banner-wrap { margin-top: -56px; }
-    .hero-banner-card {
-      width: 100%;
-      aspect-ratio: auto;
-      padding: 28px;
-    }
-    #why { padding-top: 50px; }
-  }
   /* Tablet: Hero-Höhe angepasst an kleinere Nav */
   @media (max-width: 899px) {
     .hero { min-height: calc((100svh - 76px) * 2 / 3); }
@@ -1609,7 +1420,7 @@
       <a href="#philosophie">Unsere Philosophie</a>
       <a href="#kundenstimmen">Kundenstimmen</a>
     </nav>
-    <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-primary" style="padding: 12px 18px; font-size: 15px;">
+    <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-primary nav-cta" style="padding: 12px 18px; font-size: 15px;">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
         <line x1="16" y1="2" x2="16" y2="6"/>
@@ -1617,7 +1428,7 @@
         <line x1="3" y1="10" x2="21" y2="10"/>
         <path d="m9 16 2 2 4-4"/>
       </svg>
-      Sprintwoche buchen
+      <span class="nav-cta-label">Sprintwoche buchen</span>
     </a>
   </div>
 </header>
@@ -1644,50 +1455,18 @@
     </svg>
   </div>
 
-</section>
-
-<!-- ============= HERO OVERLAP BANNER ============= -->
-<div class="hero-banner-wrap">
+  <!-- Hero Text-Content -->
   <div class="container">
-    <div class="hero-banner-card">
-      <span class="eyebrow on-dark">UNSER AI-SPRINT</span>
-      <p class="hero-banner-title">LYNQTECH STUDIO</p>
-      <div class="banner-rating-pill">
-        <svg class="badge-icon" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" aria-label="100%">
-          <!-- Ribbon tails (behind circle) -->
-          <path d="M 33,82 L 13,114 L 32,114 L 50,96 L 68,114 L 87,114 L 67,82 Z" fill="white"/>
-          <!-- Outer lime-green circle -->
-          <circle cx="50" cy="50" r="47" fill="#6ad42a"/>
-          <!-- 14 white scallop circles at ring-radius 37, each r=10 -->
-          <circle cx="87"  cy="50"   r="10" fill="white"/>
-          <circle cx="83.3" cy="66.1" r="10" fill="white"/>
-          <circle cx="73.1" cy="78.9" r="10" fill="white"/>
-          <circle cx="58.2" cy="86.1" r="10" fill="white"/>
-          <circle cx="41.8" cy="86.1" r="10" fill="white"/>
-          <circle cx="26.9" cy="78.9" r="10" fill="white"/>
-          <circle cx="16.7" cy="66.1" r="10" fill="white"/>
-          <circle cx="13"   cy="50"   r="10" fill="white"/>
-          <circle cx="16.7" cy="33.9" r="10" fill="white"/>
-          <circle cx="26.9" cy="21.1" r="10" fill="white"/>
-          <circle cx="41.8" cy="13.9" r="10" fill="white"/>
-          <circle cx="58.2" cy="13.9" r="10" fill="white"/>
-          <circle cx="73.1" cy="21.1" r="10" fill="white"/>
-          <circle cx="83.3" cy="33.9" r="10" fill="white"/>
-          <!-- Green cover circle — hides inner parts of scallops, exposes only bumps -->
-          <circle cx="50" cy="50" r="30" fill="#6ad42a"/>
-          <!-- Inner darker green circle -->
-          <circle cx="50" cy="50" r="24" fill="#3d8c19"/>
-          <!-- 100% label -->
-          <text x="50" y="50"
-                text-anchor="middle" dominant-baseline="central"
-                font-family="'Nunito Sans', Arial, sans-serif"
-                font-weight="800" font-size="22" fill="#1a4a08">100%</text>
-        </svg>
-        <span class="banner-rating-label">Weiterempfehlung unserer Teilnehmer</span>
+    <div class="hero-content">
+      <h1 class="hero-title">AI-Sprint für<br>die <span class="accent">Energie&shy;wirtschaft</span></h1>
+      <p class="hero-claim">Vom Prototyp zum tragfähigen MVP – in einer Woche.</p>
+      <p class="hero-desc">Wir validieren Ihre Produktidee mit echten Nutzer:innen und bauen sie in fünf Tagen zu einem lauffähigen MVP – inklusive Security-, Compliance- und Architektur-Review. Für EVU, die schnell Klarheit statt Konzepte für die Schublade brauchen.</p>
+      <div class="hero-cta">
+        <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-light lg">Sprintwoche buchen</a>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ============= WHY ============= -->
 <section class="section-alt" id="why">
@@ -1700,7 +1479,7 @@
     <div class="why-grid">
       <div class="why-content">
         <p>Die Energiewirtschaft steht unter hohem <strong>Innovationsdruck</strong> – und gute Ideen gibt es genug. Die eigentliche Kunst liegt darin, schnell herauszufinden, welche davon unter realen Bedingungen tragen.
-Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen bringen wir eure Idee zu einem lauffähigen MVP – und damit zu einer <strong>belastbaren Entscheidungsgrundlage</strong>. Weiterbauen oder in die Schublade? Am Ende der Woche habt ihr Gewissheit.
+Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen bringen wir Ihre Idee zu einem lauffähigen MVP, dem kleinsten funktionierenden Produkt – und damit zu einer <strong>belastbaren Entscheidungsgrundlage</strong>. Weiterbauen oder in die Schublade? Am Ende der Woche haben Sie Gewissheit.
 </p>
         <p><strong>Wie wir das in fünf Tagen schaffen?</strong> Mit dem Tempo eines modernen Produktteams, unterstützt durch KI – und mit dem tiefgreifenden Verständnis eines Unternehmens, das die Energiewirtschaft von innen kennt.
 </p>
@@ -1709,179 +1488,29 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
   </div>
 </section>
 
-<!-- ============= HOOK ============= -->
-<section class="hook" id="hook">
-  <div class="container">
-    <h1>
-      Wir stehen für nachhaltige Wirkung,<br>
-      <span class="accent">statt kurzfristigem "Wow-Effekt".</span>
-    </h1>
-    <p class="hook-text">
-    </p>
-    <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-primary xl">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-        <line x1="16" y1="2" x2="16" y2="6"/>
-        <line x1="8" y1="2" x2="8" y2="6"/>
-        <line x1="3" y1="10" x2="21" y2="10"/>
-        <path d="m9 16 2 2 4-4"/>
-      </svg>
-      Jetzt Sprintwoche buchen
-    </a>
-  </div>
-</section>
-
-<!-- ============= UNSER VORGEHEN – Interaktiver Zeitstrahl ============= -->
-<section class="section-alt" id="vorgehen">
-  <div class="container">
-    <header class="section-header">
-      <span class="eyebrow">Unser Vorgehen</span>
-      <h2>Wir gewinnen Geschwindigkeit mit dem <span class="highlight">Einsatz von KI.</span></h2>
-      <hr class="accent-line">
-    </header>
-
-    <div class="timeline">
-      <!-- Zeitstrahl mit klickbaren Pins -->
-      <div class="timeline-rail" role="tablist" aria-label="Sprint-Phasen">
-        <button class="timeline-step active" data-phase="0" type="button" role="tab" aria-selected="true" aria-controls="phase-0">
-          <span class="step-pin" aria-hidden="true"></span>
-          <span class="step-meta">
-            <span class="step-num">Schritt 01</span>
-            <span class="step-name">Klare Definition des Ziels</span>
-          </span>
-        </button>
-
-        <button class="timeline-step" data-phase="1" type="button" role="tab" aria-selected="false" aria-controls="phase-1">
-          <span class="step-pin" aria-hidden="true"></span>
-          <span class="step-meta">
-            <span class="step-num">Schritt 02</span>
-            <span class="step-name">Entwicklung der gemeinsamen Vision</span>
-          </span>
-        </button>
-
-        <button class="timeline-step" data-phase="2" type="button" role="tab" aria-selected="false" aria-controls="phase-2">
-          <span class="step-pin" aria-hidden="true"></span>
-          <span class="step-meta">
-            <span class="step-num">Schritt 03</span>
-            <span class="step-name">Anpassungen durch Feedback</span>
-          </span>
-        </button>
-
-        <span class="timeline-end-arrow" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </span>
-      </div>
-
-      <!-- Phase Cards — alle immer sichtbar, Active = grüner Rahmen -->
-      <div class="phase-cards">
-        <div class="phase-card active" id="phase-0" role="tabpanel">
-          <span class="phase-eyebrow">Schritt 01</span>
-          <h3>Klare Definition des Ziels</h3>
-          <p>Bevor wir starten, machen wir einen Realitäts- Check. Wir sprechen mit echten Nutzern und prüfen, was technisch und regulatorisch machbar ist. Am Ende dieser Phase steht fest: Was bauen wir — und was bewusst nicht.</p>
-          <ul class="check-list">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Gespräche mit echten Nutzern
-
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Prüfung der technischen und regulatorischen Realität
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Klare Definition des Rahmens
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Erste Verprobung der Kernidee
-            </li>
-          </ul>
-        </div>
-
-        <div class="phase-card" id="phase-1" role="tabpanel">
-          <span class="phase-eyebrow">Schritt 02</span>
-          <h3>Entwicklung der Vision</h3>
-          <p>Mit Unterstützung von KI bauen wir schnell eine erste Version und testen sie. Was funktioniert, bleibt. Was nicht trägt, wird sofort verworfen. Am Ende dieser Phase steht ein MVP, der nicht nur gut aussieht, sondern bei echten Nutzern bestanden hat.</p>
-          <ul class="check-list">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              
-
-Schnelle Umsetzung der Kernfunktionen
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Erneute Tests mit denselben Nutzern 
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Lauffähiger MVP, der echte Anwendungsfälle abdeckt
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Iteration und Optimierung
-            </li>
-          </ul>
-        </div>
-
-        <div class="phase-card" id="phase-2" role="tabpanel">
-          <span class="phase-eyebrow">Schritt 03</span>
-          <h3>Anpassungen durch Feedback</h3>
-          <p>Wir prüfen den MVP auf Sicherheit, unterstützen euch beim Compliance-Check und sorgen dafür, dass der Code auch nach dem Sprint sauber weiterentwickelt werden kann. Am Ende der Woche habt ihr eine fundierte Go-/No-Go-Entscheidung — und im Go-Fall einen strukturierten Weg in den Betrieb.</p>
-          <ul class="check-list">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Code-Quality
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Unterstützung bei der Sicherheitsprüfung mit Blick auf KRITIS und Bestandssysteme
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Unterstützung beim internen Compliance- und Datenschutz-Check
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Klare Roadmap für die Überführung in den produktiven Betrieb
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============= KUNDENSTIMMEN ============= -->
-<section class="testimonials" id="kundenstimmen">
-  <div class="container">
-    <header class="section-header">
-      <span class="eyebrow">Kundenstimmen</span>
-      <h2>Was sagen die Teilnehmer zum AI-Sprint.</h2>
-      <hr class="accent-line" style="margin: 20px auto 0;">
-    </header>
-    <div class="testimonials-grid">
-
-      <div class="testimonial-card testimonial-card-center">
-        <img src="testimonial-johannes.jpg" alt="Johannes S." class="testimonial-avatar">
-        <p class="testimonial-name"><em>Johannes S.</em></p>
-        <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
-        <p class="testimonial-text">„Fünf Tage bis zum Prototyp, vier Wochen bis Go-Live: Die Sprintwoche mit LYNQTECH hat unser Hilfeportal komplett neu aufgestellt — neues Design, Self-Service integriert, und das alles mit der Hilfe von KI. So schnell waren wir selten vom Problem bis zur Umsetzung."</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============= CO-CREATION + WAS IHR BEKOMMT ============= -->
+<!-- ============= NACHHALTIGE WIRKUNG + KONKRETE ERGEBNISSE ============= -->
 <section class="benefits" id="benefits">
   <div class="container">
-<div class="adv-wrap">
+    <div class="hook-intro">
+      <h1>
+        Nachhaltige Wirkung,<br>
+        <span class="accent">statt kurzfristigem "Wow-Effekt".</span>
+      </h1>
+      <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-light xl">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+          <path d="m9 16 2 2 4-4"/>
+        </svg>
+        Jetzt Sprintwoche buchen
+      </a>
+    </div>
+    <div class="benefits-divider"></div>
+    <div class="adv-wrap">
       <div class="adv-header">
-        <span class="eyebrow on-dark">Was Ihr bekommt</span>
+        <span class="eyebrow on-dark">Was Sie bekommen</span>
         <hr class="accent-line">
         <h2>Konkrete Ergebnisse.</h2>
       </div>
@@ -1901,7 +1530,7 @@ Schnelle Umsetzung der Kernfunktionen
           </span>
           <div class="adv-content">
             <h3>Lauffähiger MVP</h3>
-            <p>Ein MVP ist die kleinste funktionierende Version einer Lösung, mit der man im echten Einsatz prüfen kann, ob die Idee trägt. Bedeutet: am Ende der Sprintwoche habt ihr viel mehr als nur eine erste einfache Demo.</p>
+            <p>Ein MVP ist die kleinste funktionierende Version einer Lösung, mit der man im echten Einsatz prüfen kann, ob die Idee trägt. Bedeutet: am Ende der Sprintwoche haben Sie viel mehr als nur eine erste einfache Demo.</p>
           </div>
         </li>
         <li class="adv-item">
@@ -1919,7 +1548,7 @@ Schnelle Umsetzung der Kernfunktionen
           </span>
           <div class="adv-content">
             <h3>Klare Go/No-Go Entscheidung</h3>
-            <p>Am Ende des AI- Sprints wisst ihr: Passt das? Oder müssen wir anders denken?</p>
+            <p>Am Ende des AI-Sprints wissen Sie: Passt das? Oder müssen wir anders denken?</p>
           </div>
         </li>
         <li class="adv-item">
@@ -1928,7 +1557,7 @@ Schnelle Umsetzung der Kernfunktionen
           </span>
           <div class="adv-content">
             <h3>Dokumentation & Knowhow-Transfer</h3>
-            <p>Ihr bleibt unabhängig und erhaltet eine strukturierte Übergabe nach der AI Sprintwoche.</p>
+            <p>Sie bleiben unabhängig und erhalten eine strukturierte Übergabe nach der AI Sprintwoche.</p>
           </div>
         </li>
       </ul>
@@ -1936,7 +1565,109 @@ Schnelle Umsetzung der Kernfunktionen
   </div>
 </section>
 
+<!-- ============= UNSER VORGEHEN ============= -->
+<section class="section-alt" id="vorgehen">
+  <div class="container">
+    <header class="section-header">
+      <span class="eyebrow">Unser Vorgehen</span>
+      <h2>Wir gewinnen Geschwindigkeit mit dem <span class="highlight">Einsatz von KI.</span></h2>
+      <hr class="accent-line">
+    </header>
 
+    <!-- Statischer Schrittbalken -->
+    <div class="step-bar" aria-hidden="true">
+      <div class="step-bar-item">
+        <span class="step-dot"></span>
+        <div class="step-bar-text">
+          <span class="step-bar-label">Schritt 01</span>
+          <span class="step-bar-name">Projektstart</span>
+        </div>
+      </div>
+      <div class="step-bar-item">
+        <span class="step-dot"></span>
+        <div class="step-bar-text">
+          <span class="step-bar-label">Schritt 02</span>
+          <span class="step-bar-name">Ideenfindung</span>
+        </div>
+      </div>
+      <div class="step-bar-item">
+        <span class="step-dot"></span>
+        <div class="step-bar-text">
+          <span class="step-bar-label">Schritt 03</span>
+          <span class="step-bar-name">Validierung</span>
+        </div>
+      </div>
+      <span class="step-bar-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </span>
+    </div>
+
+    <!-- Output Cards — alle immer sichtbar -->
+    <div class="phase-cards">
+      <div class="phase-card">
+        <span class="phase-eyebrow">Output</span>
+        <h3>Klare Definition des Ziels</h3>
+        <p>Bevor wir starten, machen wir einen Realitätscheck. Wir sprechen mit echten Nutzer:innen und prüfen, was technisch und regulatorisch machbar ist. Am Ende dieser Phase steht fest: Was bauen wir — und was bewusst nicht.</p>
+        <ul class="check-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Dokumentierter Scope: was gebaut wird, was nicht
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Validierte Kernidee als Basis für Schritt 2
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Erste Einschätzung zu technischer &amp; regulatorischer Machbarkeit
+          </li>
+        </ul>
+      </div>
+
+      <div class="phase-card">
+        <span class="phase-eyebrow">Output</span>
+        <h3>Entwicklung der Vision</h3>
+        <p>Mit Unterstützung von KI bauen wir schnell eine erste Version und testen sie mit denselben Nutzer:innen aus Schritt 1. Was funktioniert, bleibt. Was nicht trägt, wird sofort verworfen.</p>
+        <ul class="check-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Lauffähiger MVP mit validierten Kernfunktionen
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Zweite Testrunde mit echtem Nutzerfeedback
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Dokumentierte Iterationsentscheidungen
+          </li>
+        </ul>
+      </div>
+
+      <div class="phase-card">
+        <span class="phase-eyebrow">Output</span>
+        <h3>Anpassungen durch Feedback</h3>
+        <p>Wir prüfen den MVP auf Sicherheit, unterstützen Sie beim Compliance-Check und sorgen dafür, dass der Code auch nach dem Sprint sauber weiterentwickelt werden kann.</p>
+        <ul class="check-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Security-Review mit Blick auf KRITIS und Bestandssysteme
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Unterstützung beim internen Compliance- und Datenschutz-Check
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Fundierte Go-/No-Go-Entscheidung inkl. Roadmap in den Betrieb
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============= ABOUT / KUNDEN ============= -->
 <section class="about-section" id="philosophie">
@@ -1948,8 +1679,45 @@ Schnelle Umsetzung der Kernfunktionen
         Wir kommen aus der Energiewirtschaft und sind Teil der <a href="https://www.lynq.tech" target="_blank" rel="noopener" class="highlight">LYNQTECH GmbH</a>. Wir wissen, woran gute Ideen in EVU normalerweise scheitern: an regulatorischen Anforderungen, an KRITIS-Nähe, an Bestandssystemen, an internen Freigabewegen und an der Frage, wer am Ende die Verantwortung übernimmt.
 Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, die unter echten Bedingungen funktionieren und die Energiebranche stärken.
       </p>
+      <p class="about-text">
+        Wir glauben, dass die größten Innovationen dort entstehen, wo Branchenwissen auf neue Denkweisen trifft. Deshalb schaffen wir Räume, in denen Expertinnen und Experten gemeinsam mit unseren Teams Ideen entwickeln, testen und weiterdenken können. Mit unserer Erfahrung aus der Energiewirtschaft und der technologischen Stärke von LYNQTECH helfen wir Unternehmen, Zukunft nicht nur zu diskutieren, sondern aktiv zu gestalten. Schnell, pragmatisch und immer mit dem Ziel, Lösungen zu entwickeln, die auch morgen noch Bestand haben.
+      </p>
     </div>
+  </div>
+</section>
 
+<!-- ============= KUNDENSTIMMEN ============= -->
+<section class="testimonials" id="kundenstimmen">
+  <div class="container">
+    <header class="section-header">
+      <span class="eyebrow">Kundenstimmen</span>
+      <h2>Was sagen die Teilnehmer zum AI-Sprint.</h2>
+      <hr class="accent-line">
+    </header>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <img src="testimonial-johannes.jpg" alt="Johannes S." class="testimonial-avatar">
+        <p class="testimonial-name"><em>Johannes S.</em></p>
+        <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="testimonial-text">„Fünf Tage bis zum Prototyp, vier Wochen bis Go-Live: Die Sprintwoche mit LYNQTECH hat unser Hilfeportal komplett neu aufgestellt — neues Design, Self-Service integriert, und das alles mit der Hilfe von KI. So schnell waren wir selten vom Problem bis zur Umsetzung."</p>
+      </div>
+
+      <div class="testimonial-card testimonial-card-center">
+        <img src="testimonial-johannes.jpg" alt="Johannes S." class="testimonial-avatar">
+        <p class="testimonial-name"><em>Johannes S.</em></p>
+        <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="testimonial-text">„Fünf Tage bis zum Prototyp, vier Wochen bis Go-Live: Die Sprintwoche mit LYNQTECH hat unser Hilfeportal komplett neu aufgestellt — neues Design, Self-Service integriert, und das alles mit der Hilfe von KI. So schnell waren wir selten vom Problem bis zur Umsetzung."</p>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="testimonial-johannes.jpg" alt="Johannes S." class="testimonial-avatar">
+        <p class="testimonial-name"><em>Johannes S.</em></p>
+        <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="testimonial-text">„Fünf Tage bis zum Prototyp, vier Wochen bis Go-Live: Die Sprintwoche mit LYNQTECH hat unser Hilfeportal komplett neu aufgestellt — neues Design, Self-Service integriert, und das alles mit der Hilfe von KI. So schnell waren wir selten vom Problem bis zur Umsetzung."</p>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -1958,7 +1726,7 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
   <div class="container">
     <span class="quote-accent" aria-hidden="true"></span>
     <blockquote class="quote-text" role="doc-epigraph">
-      Für mehr Wirkung,<br> statt kurzfristigem "Wow-Effekt".
+      Wir sind tief in der Energiebranche verwurzelt und vereinen energiewirtschaftliche Expertise sowie technologisches Fachwissen .
     </blockquote>
     <div class="quote-attribution">
       LYNQTECH Studio
@@ -1984,38 +1752,7 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
 </footer>
 
 <script>
-  // ============= TIMELINE INTERACTION ============= 
-  const timelineSteps = document.querySelectorAll('.timeline-step');
-  const phaseCards = document.querySelectorAll('.phase-card');
-
-  timelineSteps.forEach(step => {
-    step.addEventListener('click', () => {
-      const phaseIndex = step.dataset.phase;
-      
-      // Update active state on timeline steps
-      timelineSteps.forEach(s => {
-        s.classList.remove('active');
-        s.setAttribute('aria-selected', 'false');
-      });
-      step.classList.add('active');
-      step.setAttribute('aria-selected', 'true');
-
-      // Update active state on phase cards
-      phaseCards.forEach(card => card.classList.remove('active'));
-      const activeCard = document.getElementById(`phase-${phaseIndex}`);
-      if (activeCard) activeCard.classList.add('active');
-
-      // Update progress bar
-      const progressPercent = (phaseIndex / (timelineSteps.length - 1)) * 100;
-      const timelineRail = document.querySelector('.timeline-rail');
-      timelineRail.style.setProperty('--progress', `${progressPercent}%`);
-    });
-  });
-
-  // Initialize progress on load
-  document.querySelector('.timeline-rail').style.setProperty('--progress', '0%');
-
-  // ============= SMOOTH SCROLL ============= 
+  // ============= SMOOTH SCROLL =============
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
