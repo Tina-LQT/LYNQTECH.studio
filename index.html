@@ -256,12 +256,11 @@
 
   /* Textmarker-Effekt für Schlagwörter in Überschriften */
   .highlight {
-    background: linear-gradient(180deg, transparent 58%, rgba(71, 229, 48, .42) 58%, rgba(71, 229, 48, .42) 94%, transparent 94%);
-    padding: 0 6px;
-    margin: 0 -3px;
-    border-radius: 2px;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 80' preserveAspectRatio='none'><path d='M8,42 C60,32 130,38 200,36 C270,34 340,40 392,38 L390,58 C330,60 260,54 190,58 C120,62 55,56 10,60 Z M15,45 L25,44 M180,37 L220,36 M350,39 L370,38' fill='%2347E530' fill-opacity='0.5' stroke='none'/><path d='M12,44 C80,36 160,42 240,38 C310,35 360,42 388,40' stroke='%2347E530' stroke-opacity='0.35' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-size: 100% 65%;
+    background-position: 0 75%;
+    padding: 0 0.2em;
   }
   a.highlight { color: inherit; text-decoration: none; }
   a.highlight:hover { opacity: .85; }
@@ -1489,6 +1488,40 @@
     .hero { min-height: calc((100svh - 76px) * 2 / 3); }
   }
 
+  /* ===== TEAM COLLAB IMAGES ===== */
+  .team-collab-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ===== QUOTE CTA ===== */
+  .quote-cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  /* ===== TEAM PHOTOS ===== */
+  .team-photos-section {
+    width: 100%;
+    background: #fff;
+    padding: 0 0 40px;
+  }
+  .team-photos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    align-items: start;
+  }
+  .team-photo-card {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 768px) {
+    .team-photos-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  }
+
   /* ===== TEAM COLLABORATION SECTION ===== */
   .team-collab-section {
     width: 100%;
@@ -1796,71 +1829,8 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
 
 <!-- ============= TEAM COLLABORATION ============= -->
 <section class="team-collab-section" aria-label="Wie wir zusammenarbeiten">
-  <!-- Paw trail + oval heading -->
-  <div class="paw-trail-area">
-    <!-- Oval + heading -->
-    <div class="team-oval-wrap">
-      <svg class="oval-svg" viewBox="0 0 580 210" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <ellipse cx="290" cy="105" rx="272" ry="88" stroke="#47e530" stroke-width="6" stroke-linecap="round"/>
-        <ellipse cx="290" cy="102" rx="276" ry="83" stroke="#47e530" stroke-width="3.5" stroke-linecap="round" opacity="0.4" transform="rotate(2 290 102)"/>
-      </svg>
-      <h2 class="team-collab-heading">Wie genau arbeiten wir<br>mit Ihnen zusammen?</h2>
-    </div>
-  </div>
-
-  <!-- Sticky notes -->
-  <div class="sticky-notes-area">
-    <!-- LYNQTECH notes (green) -->
-    <div class="sticky-group lynq-group">
-      <div class="sticky-note lynq-note" style="--rot:-4deg;--tx:-8px;--ty:-5px">
-        <span class="note-label">LYNQTECH</span>
-        <span class="note-title">Experte</span>
-      </div>
-      <div class="sticky-note lynq-note" style="--rot:5deg;--tx:10px;--ty:-12px">
-        <span class="note-label">LYNQTECH</span>
-        <span class="note-title">Facilitator</span>
-      </div>
-      <div class="sticky-note lynq-note" style="--rot:-5deg;--tx:-5px;--ty:8px">
-        <span class="note-label">LYNQTECH</span>
-        <span class="note-title">Creative</span>
-      </div>
-      <div class="sticky-note lynq-note" style="--rot:3deg;--tx:8px;--ty:6px">
-        <span class="note-label">LYNQTECH</span>
-        <span class="note-title">Entwickler</span>
-      </div>
-    </div>
-
-    <!-- Ampersand -->
-    <div class="team-amp">&amp;</div>
-
-    <!-- KUNDE notes (dark navy) -->
-    <div class="sticky-group kunde-group">
-      <div class="sticky-note kunde-note" style="--rot:4deg;--tx:8px;--ty:-10px">
-        <span class="note-label">KUNDE</span>
-        <span class="note-title">Initiator</span>
-      </div>
-      <div class="sticky-note kunde-note" style="--rot:-3deg;--tx:-6px;--ty:-5px">
-        <span class="note-label">KUNDE</span>
-        <span class="note-title">Fachbereich I</span>
-      </div>
-      <div class="sticky-note kunde-note" style="--rot:2deg;--tx:10px;--ty:5px">
-        <span class="note-label">KUNDE</span>
-        <span class="note-title">Fachbereich II</span>
-      </div>
-      <div class="sticky-note kunde-note" style="--rot:-4deg;--tx:-8px;--ty:8px">
-        <span class="note-label">KUNDE</span>
-        <span class="note-title">Experte</span>
-      </div>
-      <div class="sticky-note kunde-note" style="--rot:3deg;--tx:6px;--ty:14px">
-        <span class="note-label">KUNDE</span>
-        <span class="note-title">Fachbereich III</span>
-      </div>
-      <div class="sticky-note kunde-note" style="--rot:-2deg;--tx:-10px;--ty:16px">
-        <span class="note-label">KUNDE</span>
-        <span class="note-title">Fachbereich IV</span>
-      </div>
-    </div>
-  </div>
+  <img src="Wie wir arbeiten.png" alt="Wie genau arbeiten wir mit Ihnen zusammen?" class="team-collab-img">
+  <img src="Post its.png" alt="Team-Zusammensetzung: LYNQTECH und Kunde" class="team-collab-img">
 </section>
 
 <!-- ============= UNSER VORGEHEN ============= -->
@@ -1905,7 +1875,6 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
     <!-- Output Cards — alle immer sichtbar -->
     <div class="phase-cards">
       <div class="phase-card">
-        <span class="phase-eyebrow">Output</span>
         <h3>Klare Definition des Ziels</h3>
         <p>Bevor wir starten, machen wir einen Realitätscheck. Wir sprechen mit echten Nutzer:innen und prüfen, was technisch und regulatorisch machbar ist. Am Ende dieser Phase steht fest: Was bauen wir — und was bewusst nicht.</p>
         <ul class="check-list">
@@ -1925,7 +1894,6 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
       </div>
 
       <div class="phase-card">
-        <span class="phase-eyebrow">Output</span>
         <h3>Entwicklung der Vision</h3>
         <p>Mit Unterstützung von KI bauen wir schnell eine erste Version und testen sie mit denselben Nutzer:innen aus Schritt 1. Was funktioniert, bleibt. Was nicht trägt, wird sofort verworfen.</p>
         <ul class="check-list">
@@ -1945,7 +1913,6 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
       </div>
 
       <div class="phase-card">
-        <span class="phase-eyebrow">Output</span>
         <h3>Anpassungen durch Feedback</h3>
         <p>Wir prüfen den MVP auf Sicherheit, unterstützen Sie beim Compliance-Check und sorgen dafür, dass der Code auch nach dem Sprint sauber weiterentwickelt werden kann.</p>
         <ul class="check-list">
@@ -2043,8 +2010,20 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
     <div class="quote-attribution">
       LYNQTECH Studio
     </div>
+    <div class="quote-cta">
+      <a href="mailto:info@lynqtech.studio?subject=Erstgespräch%20AI-Sprint" class="btn-tape">Erstgespräch vereinbaren</a>
+    </div>
   </div>
 </div>
+
+<!-- ============= TEAM ============= -->
+<section class="team-photos-section">
+  <div class="team-photos-grid">
+    <img src="Björn.png" alt="Björn, CEO" class="team-photo-card">
+    <img src="Seif.png" alt="Seif, Head of LYNQTECH Studio" class="team-photo-card">
+    <img src="Tina.png" alt="Tina, Creative Officer" class="team-photo-card">
+  </div>
+</section>
 
 <!-- ============= FOOTER ============= -->
 <footer class="footer">
