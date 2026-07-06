@@ -310,13 +310,7 @@
     flex-direction: column;
     justify-content: center;
   }
-  /* Stats sit at the bottom of the right column */
-  .hero-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-  }
+
 
   .hero-title {
     color: var(--lynq-blue);
@@ -350,22 +344,32 @@
   }
   .hero-cta { margin-top: 32px; }
 
-  /* Stat items — stacked with thin dividers */
-  .hero-stat { padding: 20px 0; }
-  .hero-stat + .hero-stat { border-top: 1px solid rgba(12,49,64,.15); }
+  /* Stat items — horizontal row below CTA */
+  .hero-stats-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    margin-top: 28px;
+    align-items: flex-start;
+  }
+  .hero-stat { padding: 0 24px 0 0; }
+  .hero-stat + .hero-stat {
+    border-left: 1px solid rgba(12,49,64,.15);
+    padding-left: 24px;
+  }
   .hero-stat-num {
     display: block;
-    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
     font-weight: 800;
     color: var(--lynq-blue);
     letter-spacing: -0.03em;
     line-height: 1;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
   .hero-stat-label {
     display: block;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -441,20 +445,11 @@
     }
     .hero-title { font-size: clamp(2rem, 8.5vw, 3rem); }
     .hero-left { max-width: 100%; justify-content: flex-start; }
-    .hero-right {
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 0;
-      align-items: flex-start;
-    }
-    .hero-stat { flex: 1; padding: 0; }
-    .hero-stat + .hero-stat {
-      border-top: none;
-      border-left: 1px solid rgba(12,49,64,.15);
-      padding-left: 16px;
-    }
-    .hero-stat-num { font-size: clamp(1.5rem, 6vw, 2rem); }
+    .hero-stat { flex: 1; padding: 0 12px 0 0; }
+    .hero-stat + .hero-stat { padding-left: 12px; }
+    .hero-stat-num { font-size: clamp(1.25rem, 6vw, 1.75rem); }
     .hero-cta { margin-top: 24px; }
+    .hero-stats-row { margin-top: 20px; }
   }
 
   /* ------------ HOOK SECTION ------------ */
@@ -1691,7 +1686,7 @@
 <section class="hero">
   <div class="hero-layout">
 
-    <!-- Linke Spalte: Titel + Claim + Desc + CTA -->
+    <!-- Linke Spalte: Titel + Claim + Desc + CTA + Kennzahlen -->
     <div class="hero-left">
       <h1 class="hero-title">KI-Sprint für die<br><span class="accent">Energiewirtschaft</span></h1>
       <p class="hero-claim">Vom Prototyp zum tragfähigen MVP – in nur einer Woche.</p>
@@ -1699,21 +1694,19 @@
       <div class="hero-cta">
         <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn-tape lg">Erstgespräch vereinbaren</a>
       </div>
-    </div>
-
-    <!-- Rechte Spalte: Kennzahlen im unteren Bereich -->
-    <div class="hero-right">
-      <div class="hero-stat">
-        <span class="hero-stat-num">100%</span>
-        <span class="hero-stat-label">Kundenzufriedenheit</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">120+</span>
-        <span class="hero-stat-label">Mitarbeiter &amp; Experten</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">3+</span>
-        <span class="hero-stat-label">Abgeschlossene Sprints</span>
+      <div class="hero-stats-row">
+        <div class="hero-stat">
+          <span class="hero-stat-num">100%</span>
+          <span class="hero-stat-label">Kundenzufriedenheit</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">120+</span>
+          <span class="hero-stat-label">Mitarbeiter &amp; Experten</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">3+</span>
+          <span class="hero-stat-label">Abgeschlossene Sprints</span>
+        </div>
       </div>
     </div>
 
