@@ -269,50 +269,56 @@
   /* ------------ HERO ------------ */
   .hero {
     position: relative;
-    background:
-      url('hero-bg.png') right center / auto 100% no-repeat;
+    background: url('hero-bg.png') right center / cover no-repeat;
     background-color: #f5f7f4;
     min-height: calc((100svh - 96px) * 2 / 3);
     overflow: hidden;
-    display: flex;
-    align-items: center;
   }
-  /* Soft left-side fade so text stays crisp over the light image */
+  /* Left-to-right fade: solid on left (text), transparent on right (image) */
   .hero::before {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
       90deg,
-      #f5f7f4        0%,
-      #f5f7f4        28%,
-      rgba(245,247,244,.92) 42%,
-      rgba(245,247,244,.55) 58%,
-      rgba(245,247,244,0)   72%
+      #f5f7f4              0%,
+      #f5f7f4              22%,
+      rgba(245,247,244,.88) 40%,
+      rgba(245,247,244,.42) 56%,
+      rgba(245,247,244,0)   70%
     );
     z-index: 0;
     pointer-events: none;
   }
   .hero::after { display: none; }
 
-  /* Hero zwei-spaltig: links Text, rechts Kennzahlen */
+  /* Full-width grid: left col (text, vertically centered) · right col (stats, bottom-aligned) */
   .hero-layout {
     position: relative;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    gap: 48px;
-    padding: 72px 0;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc((100svh - 96px) * 2 / 3);
+    padding-top: 72px;
+    padding-bottom: 56px;
+    padding-left: max(24px, calc((100vw - 1200px) / 2 + 24px));
+    padding-right: max(24px, calc((100vw - 1200px) / 2 + 24px));
+    box-sizing: border-box;
   }
   .hero-left {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     max-width: 520px;
   }
+  /* Stats sit at the bottom of the right column */
   .hero-right {
-    flex: 0 0 260px;
-    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
   }
+
   .hero-title {
     color: var(--lynq-blue);
     font-size: clamp(2.25rem, 5vw, 4rem);
@@ -342,21 +348,17 @@
   }
   .hero-cta { margin-top: 32px; }
 
-  /* Stat-Kacheln rechts */
-  .hero-stat {
-    padding: 22px 0;
-  }
-  .hero-stat + .hero-stat {
-    border-top: 1px solid var(--lynq-border);
-  }
+  /* Stat items — stacked with thin dividers */
+  .hero-stat { padding: 20px 0; }
+  .hero-stat + .hero-stat { border-top: 1px solid rgba(12,49,64,.15); }
   .hero-stat-num {
     display: block;
-    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 800;
     color: var(--lynq-blue);
     letter-spacing: -0.03em;
     line-height: 1;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
   .hero-stat-label {
     display: block;
@@ -382,17 +384,34 @@
   }
 
   @media (max-width: 899px) {
-    .hero-layout { gap: 36px; padding: 56px 0; }
-    .hero-right { flex: 0 0 200px; }
+    .hero-layout {
+      grid-template-columns: 55% 45%;
+      padding-top: 56px;
+      padding-bottom: 40px;
+    }
   }
   @media (max-width: 640px) {
     .hero { min-height: auto; }
-    .hero-layout { flex-direction: column; gap: 40px; padding: 48px 0; }
-    .hero-left { max-width: 100%; }
-    .hero-right { flex: 0 0 auto; width: 100%; display: flex; gap: 0; }
-    .hero-stat { flex: 1; padding: 0 16px 0 0; border-top: none !important; }
-    .hero-stat + .hero-stat { border-top: none !important; border-left: 1px solid var(--lynq-border); padding-left: 16px; }
-    .hero-stat-num { font-size: clamp(1.75rem, 6vw, 2.25rem); }
+    .hero-layout {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding: 48px 24px;
+      gap: 40px;
+    }
+    .hero-left { max-width: 100%; justify-content: flex-start; }
+    .hero-right {
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 0;
+      align-items: flex-start;
+    }
+    .hero-stat { flex: 1; padding: 0; }
+    .hero-stat + .hero-stat {
+      border-top: none;
+      border-left: 1px solid rgba(12,49,64,.15);
+      padding-left: 16px;
+    }
+    .hero-stat-num { font-size: clamp(1.5rem, 6vw, 2rem); }
     .hero-cta { margin-top: 24px; }
   }
 
@@ -1465,36 +1484,34 @@
 
 <!-- ============= HERO ============= -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-layout">
+  <div class="hero-layout">
 
-      <!-- Linke Spalte: Titel + Claim + Desc + CTA -->
-      <div class="hero-left">
-        <h1 class="hero-title">AI-Sprint für die<br><span class="accent">Energiewirtschaft</span></h1>
-        <p class="hero-claim">Vom Prototyp zum tragfähigen MVP – in einer Woche.</p>
-        <p class="hero-desc">Wir validieren Ihre Produktidee mit echten Nutzer:innen und bauen sie in fünf Tagen zu einem lauffähigen MVP – inklusive Security-, Compliance- und Architektur-Review. Für EVU, die schnell Klarheit statt Konzepte für die Schublade brauchen.</p>
-        <div class="hero-cta">
-          <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-primary lg">Sprintwoche buchen</a>
-        </div>
+    <!-- Linke Spalte: Titel + Claim + Desc + CTA -->
+    <div class="hero-left">
+      <h1 class="hero-title">AI-Sprint für die<br><span class="accent">Energiewirtschaft</span></h1>
+      <p class="hero-claim">Vom Prototyp zum tragfähigen MVP – in einer Woche.</p>
+      <p class="hero-desc">Wir validieren Ihre Produktidee mit echten Nutzer:innen und bauen sie in fünf Tagen zu einem lauffähigen MVP – inklusive Security-, Compliance- und Architektur-Review. Für EVU, die schnell Klarheit statt Konzepte für die Schublade brauchen.</p>
+      <div class="hero-cta">
+        <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-primary lg">Sprintwoche buchen</a>
       </div>
-
-      <!-- Rechte Spalte: Kennzahlen -->
-      <div class="hero-right">
-        <div class="hero-stat">
-          <span class="hero-stat-num">100%</span>
-          <span class="hero-stat-label">Kundenzufriedenheit</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">120+</span>
-          <span class="hero-stat-label">Mitarbeiter &amp; Experten</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">3+</span>
-          <span class="hero-stat-label">Abgeschlossene Sprints</span>
-        </div>
-      </div>
-
     </div>
+
+    <!-- Rechte Spalte: Kennzahlen im unteren Bereich -->
+    <div class="hero-right">
+      <div class="hero-stat">
+        <span class="hero-stat-num">100%</span>
+        <span class="hero-stat-label">Kundenzufriedenheit</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">120+</span>
+        <span class="hero-stat-label">Mitarbeiter &amp; Experten</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">3+</span>
+        <span class="hero-stat-label">Abgeschlossene Sprints</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
