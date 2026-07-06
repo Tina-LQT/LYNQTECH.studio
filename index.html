@@ -281,11 +281,11 @@
     inset: 0;
     background: linear-gradient(
       90deg,
-      #f5f7f4              0%,
-      #f5f7f4              22%,
-      rgba(245,247,244,.88) 40%,
-      rgba(245,247,244,.42) 56%,
-      rgba(245,247,244,0)   70%
+      #f5f7f4               0%,
+      #f5f7f4               32%,
+      rgba(245,247,244,.85) 46%,
+      rgba(245,247,244,.38) 62%,
+      rgba(245,247,244,0)   76%
     );
     z-index: 0;
     pointer-events: none;
@@ -297,7 +297,7 @@
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 560px) 1fr;
     min-height: calc((100svh - 96px) * 2 / 3);
     padding-top: 72px;
     padding-bottom: 56px;
@@ -309,7 +309,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 520px;
   }
   /* Stats sit at the bottom of the right column */
   .hero-right {
@@ -321,11 +320,12 @@
 
   .hero-title {
     color: var(--lynq-blue);
-    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 5.625rem);
     font-weight: 800;
     line-height: 1.04;
     letter-spacing: -0.025em;
     margin-bottom: 20px;
+    hyphens: auto;
   }
   .hero-title .accent {
     background: linear-gradient(135deg, #2cb814 0%, #47e530 100%);
@@ -381,6 +381,66 @@
     background: #fff;
     transform: translateY(-1px);
     box-shadow: 0 6px 24px rgba(0,0,0,.28);
+  }
+
+  /* ========== TORN-TAPE CTA ========== */
+  /*
+   * The tape strip sits in a ::before pseudo-element so text
+   * is never clipped. The jagged left/right edges are a clip-path
+   * polygon mimicking a hand-torn piece of tape.
+   */
+  .btn-tape {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--lynq-blue);
+    font-weight: 800;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    transition: transform .2s ease;
+  }
+  .btn-tape::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--lynq-green);
+    /* Left torn edge: x 0–6 %, right torn edge: x 94–100 % */
+    clip-path: polygon(
+      0%   0%,
+      4%   9%,  1%  19%,  5%  30%,
+      1%  41%,  6%  51%,  1%  62%,
+      4%  72%,  0%  83%,  5%  92%,
+      2% 100%,
+      98% 100%,
+      96%  91%, 100%  81%,  95%  71%,
+      99%  60%,  94%  49%, 100%  39%,
+      95%  29%,  99%  19%,  95%   9%,
+      100%  0%
+    );
+    transform: rotate(-0.6deg);
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,.16));
+    transition: filter .2s ease, transform .2s ease;
+    z-index: -1;
+  }
+  .btn-tape:hover { transform: translateY(-2px); }
+  .btn-tape:hover::before {
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,.22));
+  }
+  .btn-tape.lg  { padding: 17px 52px; font-size: 17px; }
+  .btn-tape.xl  { padding: 21px 60px; font-size: 18px; }
+  @media (max-width: 640px) {
+    .btn-tape    { padding: 13px 36px; font-size: .9375rem; }
+    .btn-tape.lg { padding: 14px 40px; font-size: 16px; }
+    .btn-tape.xl { padding: 16px 44px; font-size: 17px; }
   }
 
   @media (max-width: 899px) {
@@ -1488,11 +1548,11 @@
 
     <!-- Linke Spalte: Titel + Claim + Desc + CTA -->
     <div class="hero-left">
-      <h1 class="hero-title">AI-Sprint für die<br><span class="accent">Energiewirtschaft</span></h1>
+      <h1 class="hero-title">KI-Sprint für die<br><span class="accent">Energiewirtschaft</span></h1>
       <p class="hero-claim">Vom Prototyp zum tragfähigen MVP – in einer Woche.</p>
       <p class="hero-desc">Wir validieren Ihre Produktidee mit echten Nutzer:innen und bauen sie in fünf Tagen zu einem lauffähigen MVP – inklusive Security-, Compliance- und Architektur-Review. Für EVU, die schnell Klarheit statt Konzepte für die Schublade brauchen.</p>
       <div class="hero-cta">
-        <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-primary lg">Sprintwoche buchen</a>
+        <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn-tape lg">Erstgespräch vereinbaren</a>
       </div>
     </div>
 
@@ -1543,7 +1603,7 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
         Nachhaltige Wirkung,<br>
         <span class="accent">statt kurzfristigem<br>"Wow-Effekt".</span>
       </h1>
-      <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-light xl">
+      <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn-tape xl">
         Sprintwoche buchen
       </a>
     </div>
@@ -1588,7 +1648,7 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
           </span>
           <div class="adv-content">
             <h3>Klare Go/No-Go Entscheidung</h3>
-            <p>Am Ende des AI-Sprints wissen Sie: Passt das? Oder müssen wir anders denken?</p>
+            <p>Am Ende des KI-Sprints wissen Sie: Passt das? Oder müssen wir anders denken?</p>
           </div>
         </li>
         <li class="adv-item">
@@ -1731,7 +1791,7 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
   <div class="container">
     <header class="section-header">
       <span class="eyebrow">Kundenstimmen</span>
-      <h2>Was sagen die Teilnehmer<br>zum AI-Sprint.</h2>
+      <h2>Was sagen die Teilnehmer<br>zum KI-Sprint.</h2>
       <hr class="accent-line">
     </header>
     <div class="tc-wrap">
