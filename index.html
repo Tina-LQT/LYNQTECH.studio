@@ -129,9 +129,8 @@
   }
   @media (max-width: 560px) {
     .nav-inner { height: 64px; }
-    .logo-img { height: 46px; }
-    .nav-cta-label { display: none; }
-    .nav-cta { padding: 10px 12px !important; gap: 0; }
+    .logo-img { height: 38px; }
+    .nav-cta { padding: 8px 12px !important; font-size: 13px !important; }
   }
 
   /* ------------ BUTTONS ------------ */
@@ -271,77 +270,104 @@
   .hero {
     position: relative;
     background:
-      linear-gradient(rgba(12, 49, 64, .70) 0%, rgba(6, 32, 42, .62) 100%),
-      url('hero-bg.png') 50% 20% / cover no-repeat;
-    color: #fff;
+      url('hero-bg.png') right center / auto 100% no-repeat;
+    background-color: #f5f7f4;
     min-height: calc((100svh - 96px) * 2 / 3);
     overflow: hidden;
     display: flex;
     align-items: center;
   }
+  /* Soft left-side fade so text stays crisp over the light image */
   .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image:
-      linear-gradient(rgba(71, 229, 48, .06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(71, 229, 48, .06) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000 30%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000 30%, transparent 75%);
+    background: linear-gradient(
+      90deg,
+      #f5f7f4        0%,
+      #f5f7f4        28%,
+      rgba(245,247,244,.92) 42%,
+      rgba(245,247,244,.55) 58%,
+      rgba(245,247,244,0)   72%
+    );
+    z-index: 0;
     pointer-events: none;
   }
-  .hero::after {
-    content: "";
-    position: absolute;
-    top: -200px;
-    right: -200px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(71, 229, 48, .15) 0%, transparent 60%);
-    border-radius: var(--r-full);
-    pointer-events: none;
-  }
+  .hero::after { display: none; }
 
-  /* Hero Content (Titel, Claim, Beschreibung, CTA) */
-  .hero-content {
+  /* Hero zwei-spaltig: links Text, rechts Kennzahlen */
+  .hero-layout {
     position: relative;
     z-index: 1;
-    max-width: 620px;
-    margin: 0;
-    text-align: left;
-    padding: 56px 0;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 72px 0;
+    width: 100%;
+  }
+  .hero-left {
+    flex: 1;
+    max-width: 520px;
+  }
+  .hero-right {
+    flex: 0 0 260px;
+    margin-left: auto;
   }
   .hero-title {
-    color: #fff;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--lynq-blue);
+    font-size: clamp(2.25rem, 5vw, 4rem);
     font-weight: 800;
-    line-height: 1.02;
+    line-height: 1.04;
     letter-spacing: -0.025em;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
   }
   .hero-title .accent {
-    background: linear-gradient(135deg, #47e530 0%, #8fff7a 100%);
+    background: linear-gradient(135deg, #2cb814 0%, #47e530 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   .hero-claim {
-    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
     font-weight: 700;
-    color: #fff;
+    color: var(--lynq-text-secondary);
     line-height: 1.4;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     letter-spacing: -0.01em;
   }
   .hero-desc {
     font-size: clamp(0.9375rem, 1.1vw, 1rem);
-    color: rgba(255,255,255,.72);
+    color: var(--lynq-text-secondary);
     line-height: 1.65;
   }
-  .hero-cta {
-    margin-top: 36px;
+  .hero-cta { margin-top: 32px; }
+
+  /* Stat-Kacheln rechts */
+  .hero-stat {
+    padding: 22px 0;
   }
+  .hero-stat + .hero-stat {
+    border-top: 1px solid var(--lynq-border);
+  }
+  .hero-stat-num {
+    display: block;
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-weight: 800;
+    color: var(--lynq-blue);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-stat-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lynq-text-tertiary);
+  }
+
   .btn-light {
     background: rgba(255,255,255,.96);
     color: var(--lynq-blue);
@@ -355,63 +381,19 @@
     box-shadow: 0 6px 24px rgba(0,0,0,.28);
   }
 
-  /* Animierter Blob im Hero-Hintergrund */
-  .hero-blob {
-    position: absolute;
-    top: 50%;
-    right: -12%;
-    width: 820px;
-    height: 820px;
-    z-index: 0;
-    pointer-events: none;
-    filter: blur(32px);
-    will-change: transform, opacity;
-    animation: blobPulse 7.5s ease-in-out infinite;
-  }
-  .hero-blob svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    animation: blobRotate 48s linear infinite;
-    transform-origin: center;
-  }
-  @keyframes blobPulse {
-    0%, 100% {
-      transform: translateY(-50%) scale(1);
-      opacity: .72;
-    }
-    50% {
-      transform: translateY(-50%) scale(1.16);
-      opacity: 1;
-    }
-  }
-  @keyframes blobRotate {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-
-  @media (max-width: 900px) {
-    .hero-blob {
-      width: 560px;
-      height: 560px;
-      right: -25%;
-      top: 40%;
-      filter: blur(24px);
-    }
-  }
   @media (max-width: 899px) {
-    .hero-content { max-width: 100%; padding: 48px 0; }
+    .hero-layout { gap: 36px; padding: 56px 0; }
+    .hero-right { flex: 0 0 200px; }
   }
   @media (max-width: 640px) {
-    .hero-blob {
-      width: 440px;
-      height: 440px;
-      right: -30%;
-      opacity: .8;
-    }
-    .hero { min-height: calc((100svh - 64px) * 2 / 3); }
-    .hero-content { padding: 40px 0; }
-    .hero-cta { margin-top: 28px; }
+    .hero { min-height: auto; }
+    .hero-layout { flex-direction: column; gap: 40px; padding: 48px 0; }
+    .hero-left { max-width: 100%; }
+    .hero-right { flex: 0 0 auto; width: 100%; display: flex; gap: 0; }
+    .hero-stat { flex: 1; padding: 0 16px 0 0; border-top: none !important; }
+    .hero-stat + .hero-stat { border-top: none !important; border-left: 1px solid var(--lynq-border); padding-left: 16px; }
+    .hero-stat-num { font-size: clamp(1.75rem, 6vw, 2.25rem); }
+    .hero-cta { margin-top: 24px; }
   }
 
   /* ------------ HOOK SECTION ------------ */
@@ -1285,31 +1267,31 @@
     line-height: 1.5;
   }
 
-  /* ------------ KUNDENSTIMMEN ------------ */
+  /* ------------ KUNDENSTIMMEN CAROUSEL ------------ */
   .testimonials {
     background: var(--lynq-surface-1);
     padding: 96px 0;
     text-align: left;
   }
-  .testimonials .section-header {
-    margin: 0 0 56px;
+  .testimonials .section-header { margin: 0 0 56px; }
+
+  .tc-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0;
   }
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-  .testimonial-card-center {
-    padding: 56px 36px 52px;
-    box-shadow: 0 20px 56px -8px rgba(0,0,0,.48);
-  }
-  @media (max-width: 768px) {
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-    }
-    .testimonial-card-center {
-      padding: 44px 36px 40px;
-    }
+  /* sliding track */
+  .tc-track {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    overflow: hidden;
+    padding: 32px 0 40px;
+    /* leave room so scaled-up center card shadow isn't clipped */
+    overflow: visible;
+    clip-path: inset(-60px 0);
   }
   .testimonial-card {
     background: linear-gradient(135deg, #14293a 0%, #1e4535 55%, #2d5c38 100%);
@@ -1319,7 +1301,19 @@
     flex-direction: column;
     align-items: center;
     gap: 14px;
+    flex-shrink: 0;
+    width: calc(33.333% - 14px);
     box-shadow: 0 8px 32px -8px rgba(0,0,0,.28);
+    transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s ease, opacity .45s ease;
+    opacity: .72;
+    transform: scale(.88);
+    cursor: pointer;
+  }
+  .testimonial-card.tc-active {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 20px 56px -8px rgba(0,0,0,.48);
+    cursor: default;
   }
   .testimonial-avatar {
     width: 76px;
@@ -1350,8 +1344,51 @@
     font-style: italic;
     max-width: 480px;
   }
+  /* nav arrows */
+  .tc-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--lynq-border);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--lynq-blue);
+    transition: background .15s, border-color .15s, transform .15s;
+    z-index: 2;
+  }
+  .tc-btn:hover { background: var(--lynq-blue); color: #fff; border-color: var(--lynq-blue); transform: scale(1.08); }
+  .tc-btn-prev { margin-right: 16px; }
+  .tc-btn-next { margin-left: 16px; }
+  /* dots */
+  .tc-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+  }
+  .tc-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--lynq-border);
+    transition: background .2s, transform .2s;
+    cursor: pointer;
+  }
+  .tc-dot.tc-dot-active { background: var(--lynq-green); transform: scale(1.3); }
+
   @media (max-width: 768px) {
     .testimonials { padding: 64px 0; }
+    .testimonial-card { width: calc(80vw - 48px); padding: 36px 28px 32px; }
+    .tc-btn { width: 36px; height: 36px; }
+    .tc-btn-prev { margin-right: 10px; }
+    .tc-btn-next { margin-left: 10px; }
+  }
+  @media (max-width: 480px) {
+    .testimonial-card { width: calc(88vw - 48px); }
+    .tc-btn { display: none; }
   }
 
   /* Animations */
@@ -1428,35 +1465,35 @@
 
 <!-- ============= HERO ============= -->
 <section class="hero">
-  <!-- Animierter Blob im Hintergrund: rotiert + pulsiert -->
-  <div class="hero-blob" aria-hidden="true">
-    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="blob-grad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#47e530" stop-opacity="0.55"/>
-          <stop offset="45%" stop-color="#47e530" stop-opacity="0.22"/>
-          <stop offset="100%" stop-color="#47e530" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <path d="M 280,55
-                   C 365,38 445,98 458,180
-                   C 472,265 448,360 372,418
-                   C 296,478 192,468 122,408
-                   C 52,348 28,250 62,162
-                   C 96,72 195,72 280,55 Z"
-            fill="url(#blob-grad)"/>
-    </svg>
-  </div>
-
-  <!-- Hero Text-Content -->
   <div class="container">
-    <div class="hero-content">
-      <h1 class="hero-title">AI-Sprint für die<br><span class="accent">Energiewirtschaft</span></h1>
-      <p class="hero-claim">Vom Prototyp zum tragfähigen MVP – in einer Woche.</p>
-      <p class="hero-desc">Wir validieren Ihre Produktidee mit echten Nutzer:innen und bauen sie in fünf Tagen zu einem lauffähigen MVP – inklusive Security-, Compliance- und Architektur-Review. Für EVU, die schnell Klarheit statt Konzepte für die Schublade brauchen.</p>
-      <div class="hero-cta">
-        <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-light lg">Sprintwoche buchen</a>
+    <div class="hero-layout">
+
+      <!-- Linke Spalte: Titel + Claim + Desc + CTA -->
+      <div class="hero-left">
+        <h1 class="hero-title">AI-Sprint für die<br><span class="accent">Energiewirtschaft</span></h1>
+        <p class="hero-claim">Vom Prototyp zum tragfähigen MVP – in einer Woche.</p>
+        <p class="hero-desc">Wir validieren Ihre Produktidee mit echten Nutzer:innen und bauen sie in fünf Tagen zu einem lauffähigen MVP – inklusive Security-, Compliance- und Architektur-Review. Für EVU, die schnell Klarheit statt Konzepte für die Schublade brauchen.</p>
+        <div class="hero-cta">
+          <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn btn-primary lg">Sprintwoche buchen</a>
+        </div>
       </div>
+
+      <!-- Rechte Spalte: Kennzahlen -->
+      <div class="hero-right">
+        <div class="hero-stat">
+          <span class="hero-stat-num">100%</span>
+          <span class="hero-stat-label">Kundenzufriedenheit</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">120+</span>
+          <span class="hero-stat-label">Mitarbeiter &amp; Experten</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">3+</span>
+          <span class="hero-stat-label">Abgeschlossene Sprints</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1680,29 +1717,43 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
       <h2>Was sagen die Teilnehmer<br>zum AI-Sprint.</h2>
       <hr class="accent-line">
     </header>
-    <div class="testimonials-grid">
+    <div class="tc-wrap">
+      <button class="tc-btn tc-btn-prev" aria-label="Vorheriges Feedback">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
 
-      <div class="testimonial-card">
-        <img src="testimonial-johannes.jpg" alt="Johannes S." class="testimonial-avatar">
-        <p class="testimonial-name"><em>Johannes S.</em></p>
-        <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
-        <p class="testimonial-text">„Fünf Tage bis zum Prototyp, vier Wochen bis Go-Live: Die Sprintwoche mit LYNQTECH hat unser Hilfeportal komplett neu aufgestellt — neues Design, Self-Service integriert, und das alles mit der Hilfe von KI. So schnell waren wir selten vom Problem bis zur Umsetzung."</p>
+      <div class="tc-track" id="tcTrack">
+        <div class="testimonial-card" data-index="0">
+          <img src="testimonial-johannes.jpg" alt="Johannes S." class="testimonial-avatar">
+          <p class="testimonial-name"><em>Johannes S.</em></p>
+          <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+          <p class="testimonial-text">„Fünf Tage bis zum Prototyp, vier Wochen bis Go-Live: Die Sprintwoche mit LYNQTECH hat unser Hilfeportal komplett neu aufgestellt — neues Design, Self-Service integriert, und das alles mit der Hilfe von KI. So schnell waren wir selten vom Problem bis zur Umsetzung."</p>
+        </div>
+
+        <div class="testimonial-card" data-index="1">
+          <img src="testimonial-jessi.jpg" alt="Jessi S." class="testimonial-avatar">
+          <p class="testimonial-name"><em>Jessi S.</em></p>
+          <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+          <p class="testimonial-text">„Von der ersten Idee bis zum greifbaren Ergebnis in nur fünf Tagen: Die Sprintwoche mit LYNQTECH hat gezeigt, was möglich ist, wenn geballte Expertise, klare Ziele und schnelle Entscheidungen aufeinandertreffen. Durch die enge Zusammenarbeit im Team und den gezielten Einsatz von KI konnten wir Lösungen entwickeln, für die klassische Projekte oft Wochen oder Monate benötigen. Schnell, fokussiert und mit sichtbaren Ergebnissen vom ersten Tag an."</p>
+        </div>
+
+        <div class="testimonial-card" data-index="2">
+          <img src="testimonial-johannes.jpg" alt="Johannes S." class="testimonial-avatar">
+          <p class="testimonial-name"><em>Johannes S.</em></p>
+          <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+          <p class="testimonial-text">„Fünf Tage bis zum Prototyp, vier Wochen bis Go-Live: Die Sprintwoche mit LYNQTECH hat unser Hilfeportal komplett neu aufgestellt — neues Design, Self-Service integriert, und das alles mit der Hilfe von KI. So schnell waren wir selten vom Problem bis zur Umsetzung."</p>
+        </div>
       </div>
 
-      <div class="testimonial-card testimonial-card-center">
-        <img src="testimonial-johannes.jpg" alt="Johannes S." class="testimonial-avatar">
-        <p class="testimonial-name"><em>Johannes S.</em></p>
-        <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
-        <p class="testimonial-text">„Fünf Tage bis zum Prototyp, vier Wochen bis Go-Live: Die Sprintwoche mit LYNQTECH hat unser Hilfeportal komplett neu aufgestellt — neues Design, Self-Service integriert, und das alles mit der Hilfe von KI. So schnell waren wir selten vom Problem bis zur Umsetzung."</p>
-      </div>
+      <button class="tc-btn tc-btn-next" aria-label="Nächstes Feedback">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
 
-      <div class="testimonial-card">
-        <img src="testimonial-johannes.jpg" alt="Johannes S." class="testimonial-avatar">
-        <p class="testimonial-name"><em>Johannes S.</em></p>
-        <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
-        <p class="testimonial-text">„Fünf Tage bis zum Prototyp, vier Wochen bis Go-Live: Die Sprintwoche mit LYNQTECH hat unser Hilfeportal komplett neu aufgestellt — neues Design, Self-Service integriert, und das alles mit der Hilfe von KI. So schnell waren wir selten vom Problem bis zur Umsetzung."</p>
-      </div>
-
+    <div class="tc-dots" id="tcDots">
+      <span class="tc-dot" data-dot="0"></span>
+      <span class="tc-dot" data-dot="1"></span>
+      <span class="tc-dot" data-dot="2"></span>
     </div>
   </div>
 </section>
@@ -1738,6 +1789,67 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
 </footer>
 
 <script>
+  // ============= TESTIMONIAL CAROUSEL =============
+  (function() {
+    const track   = document.getElementById('tcTrack');
+    const cards   = Array.from(track.querySelectorAll('.testimonial-card'));
+    const dots    = Array.from(document.querySelectorAll('#tcDots .tc-dot'));
+    const btnPrev = document.querySelector('.tc-btn-prev');
+    const btnNext = document.querySelector('.tc-btn-next');
+    let active = 0;
+
+    function getVisible() {
+      return window.innerWidth <= 768 ? 1 : 3;
+    }
+
+    function render(idx) {
+      active = (idx + cards.length) % cards.length;
+      const vis = getVisible();
+
+      if (vis === 1) {
+        // Mobile: translate so active card is centered
+        const cardW = cards[0].offsetWidth + 20;
+        track.style.transform = `translateX(${-active * cardW}px)`;
+        track.style.transition = 'transform .45s cubic-bezier(.4,0,.2,1)';
+        cards.forEach((c, i) => {
+          c.classList.toggle('tc-active', i === active);
+          c.style.transform = '';
+          c.style.opacity  = i === active ? '1' : '.6';
+        });
+      } else {
+        track.style.transform = '';
+        track.style.transition = '';
+        cards.forEach((c, i) => {
+          const isActive = i === active;
+          c.classList.toggle('tc-active', isActive);
+        });
+      }
+
+      dots.forEach((d, i) => d.classList.toggle('tc-dot-active', i === active));
+    }
+
+    // Position track as a flex row that shows overflow
+    track.style.flexWrap = 'nowrap';
+
+    btnNext.addEventListener('click', () => render(active + 1));
+    btnPrev.addEventListener('click', () => render(active - 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => render(i)));
+    cards.forEach((c, i) => {
+      c.addEventListener('click', () => { if (i !== active) render(i); });
+    });
+
+    // Touch/swipe
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) render(active + (dx < 0 ? 1 : -1));
+    });
+
+    render(0);
+    window.addEventListener('resize', () => render(active));
+  })();
+
   // ============= SMOOTH SCROLL =============
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
