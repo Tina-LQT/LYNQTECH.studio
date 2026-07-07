@@ -1736,6 +1736,7 @@
   }
 
   /* ============= COOKIE BANNER ============= */
+  /* ---- Cookie bottom bar ---- */
   .cookie-overlay {
     position: fixed;
     bottom: 0;
@@ -1749,40 +1750,39 @@
     transform: translateY(110%);
     pointer-events: none;
   }
-  .cookie-overlay.hidden {
-    display: none;
-  }
+  .cookie-overlay.hidden { display: none; }
+
   .cookie-modal {
     background: #fff;
     border-radius: 16px 16px 0 0;
     width: 100%;
-    max-width: 100%;
-    max-height: 72vh;
-    overflow-y: auto;
     box-shadow: 0 -6px 40px rgba(0,0,0,.18);
     display: flex;
     flex-direction: column;
+    max-height: 80vh;
   }
+
+  /* Header */
   .cookie-modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 28px 20px;
+    padding: 20px 28px 16px;
     gap: 16px;
     flex-shrink: 0;
   }
   .cookie-modal-logo {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
   }
   .cookie-modal-logo img {
-    height: 56px;
+    height: 44px;
     width: auto;
-    border-radius: 8px;
+    border-radius: 6px;
   }
   .cookie-modal-logo h2 {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--lynq-blue);
     margin: 0;
@@ -1791,7 +1791,7 @@
   .cookie-close {
     background: none;
     border: none;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--lynq-green);
     cursor: pointer;
     padding: 4px 8px;
@@ -1801,34 +1801,54 @@
     transition: background .15s;
   }
   .cookie-close:hover { background: rgba(71,229,48,.12); }
+
+  /* Full-width top divider */
   .cookie-divider {
     border: none;
     border-top: 2px solid var(--lynq-green);
     margin: 0 28px;
     flex-shrink: 0;
   }
-  .cookie-modal-body {
-    padding: 20px 28px 4px;
-    font-size: .875rem;
-    line-height: 1.6;
-    color: #333;
+
+  /* Two-column content area */
+  .cookie-content-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
     overflow-y: auto;
+    flex: 1;
+    min-height: 0;
   }
-  .cookie-modal-body p { margin: 0 0 16px; }
+
+  /* Left: text + checkboxes + footer links */
+  .cookie-modal-body {
+    flex: 1 1 0;
+    padding: 20px 28px 20px;
+    font-size: .82rem;
+    line-height: 1.55;
+    color: #444;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+  }
+  .cookie-modal-body p { margin: 0 0 12px; }
   .cookie-modal-body a { color: var(--lynq-green); text-decoration: underline; }
-  .cookie-modal-body .cookie-divider { margin: 16px 0; }
+  .cookie-divider-inline {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 12px 0;
+  }
   .cookie-checkboxes {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 16px 32px;
-    margin: 4px 0 20px;
+    gap: 10px 28px;
+    margin: 4px 0 16px;
   }
   .cookie-check-item {
     display: flex;
     align-items: center;
-    gap: 16px;
-    font-size: .95rem;
+    gap: 10px;
+    font-size: .875rem;
     font-weight: 500;
     color: var(--lynq-blue);
     cursor: pointer;
@@ -1836,8 +1856,8 @@
   .cookie-check-item input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border: 2px solid #ccc;
     border-radius: 4px;
     flex-shrink: 0;
@@ -1855,29 +1875,45 @@
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%,-50%);
-    font-size: .75rem;
+    font-size: .7rem;
     color: #555;
     font-weight: 700;
   }
-  .cookie-check-item input[type="checkbox"]:disabled {
-    cursor: default;
-    opacity: .85;
+  .cookie-check-item input[type="checkbox"]:disabled { cursor: default; opacity: .85; }
+
+  /* Footer links — inside left column */
+  .cookie-modal-footer {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 4px;
   }
+  .cookie-modal-footer a {
+    font-size: .75rem;
+    color: #999;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+    transition: color .15s;
+  }
+  .cookie-modal-footer a:hover { color: var(--lynq-blue); }
+
+  /* Right: buttons column */
   .cookie-modal-actions {
-    padding: 4px 28px 16px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex: 0 0 260px;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    flex-shrink: 0;
+    padding: 20px 24px 20px;
+    justify-content: center;
   }
   .cookie-btn {
     width: 100%;
-    padding: 13px 16px;
+    padding: 13px 14px;
     border: none;
     border-radius: 8px;
     background: var(--lynq-green);
     color: var(--lynq-blue);
-    font-size: .9rem;
+    font-size: .875rem;
     font-weight: 700;
     cursor: pointer;
     transition: filter .15s, transform .1s;
@@ -1888,32 +1924,17 @@
     filter: brightness(1.08);
     transform: translateY(-1px);
   }
-  .cookie-modal-footer {
-    padding: 10px 28px 20px;
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-  }
-  .cookie-modal-footer a {
-    font-size: .8rem;
-    color: #777;
-    text-decoration: none;
-    border-bottom: 1px solid #ddd;
-    transition: color .15s;
-  }
-  .cookie-modal-footer a:hover { color: var(--lynq-blue); }
-  @media (max-width: 480px) {
-    .cookie-modal { border-radius: 12px 12px 0 0; max-height: 95vh; }
-    .cookie-modal-actions { grid-template-columns: 1fr; }
-    .cookie-modal-header { padding: 18px 18px 14px; }
-    .cookie-modal-logo img { height: 44px; }
-    .cookie-modal-logo h2 { font-size: 1.1rem; }
-    .cookie-modal-body { padding: 16px 18px 4px; }
+
+  /* Mobile: stack vertically */
+  @media (max-width: 640px) {
+    .cookie-modal { border-radius: 14px 14px 0 0; max-height: 90vh; }
+    .cookie-modal-header { padding: 16px 18px 14px; }
+    .cookie-modal-logo img { height: 36px; }
+    .cookie-modal-logo h2 { font-size: 1rem; }
     .cookie-divider { margin: 0 18px; }
-    .cookie-modal-actions { padding: 4px 18px 12px; }
-    .cookie-modal-footer { padding: 10px 18px 18px; gap: 16px; }
+    .cookie-content-wrap { flex-direction: column; }
+    .cookie-modal-body { border-right: none; border-bottom: 1px solid #eee; padding: 16px 18px 16px; }
+    .cookie-modal-actions { flex: none; padding: 14px 18px 18px; }
   }
 </style>
 </head>
@@ -2500,38 +2521,40 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
       <button class="cookie-close" id="cookieClose" aria-label="Schließen">✕</button>
     </div>
     <hr class="cookie-divider">
-    <div class="cookie-modal-body">
-      <p>Wir nutzen Cookies auf unserer Website. Einige von ihnen sind essenziell, während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern.</p>
-      <p>Wenn Sie unter 16 Jahre alt sind und Ihre Zustimmung zu freiwilligen Diensten geben möchten, müssen Sie Ihre Erziehungsberechtigten um Erlaubnis bitten.</p>
-      <p>Wir verwenden Cookies und andere Technologien auf unserer Website. Einige von ihnen sind essenziell, während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern. Personenbezogene Daten können verarbeitet werden (z.&nbsp;B. IP-Adressen), z.&nbsp;B. für personalisierte Anzeigen und Inhalte oder Anzeigen- und Inhaltsmessung. Weitere Informationen über die Verwendung Ihrer Daten finden Sie in unserer <a href="https://www.lynq.tech/datenschutzerklaerung/" target="_blank" rel="noopener">Datenschutzerklärung</a>. Sie können Ihre Auswahl jederzeit unter <a href="#" id="cookieReopenLink">Einstellungen</a> widerrufen oder anpassen.</p>
-      <hr class="cookie-divider">
-      <p>Einige Services verarbeiten personenbezogene Daten in den USA. Mit Ihrer Einwilligung zur Nutzung dieser Services stimmen Sie auch der Verarbeitung Ihrer Daten in den USA gemäß Art.&nbsp;49 (1) lit.&nbsp;a DSGVO zu. Der EuGH stuft die USA als Land mit unzureichendem Datenschutz nach EU-Standards ein. So besteht etwa das Risiko, dass US-Behörden personenbezogene Daten in Überwachungsprogrammen verarbeiten, ohne bestehende Klagemöglichkeit für Europäer.</p>
-      <hr class="cookie-divider">
-      <div class="cookie-checkboxes">
-        <label class="cookie-check-item">
-          <input type="checkbox" checked disabled> Essenziell
-        </label>
-        <label class="cookie-check-item">
-          <input type="checkbox" id="ckStatistiken"> Statistiken
-        </label>
-        <label class="cookie-check-item">
-          <input type="checkbox" id="ckMarketing"> Marketing
-        </label>
-        <label class="cookie-check-item">
-          <input type="checkbox" id="ckExterne"> Externe Medien
-        </label>
+    <div class="cookie-content-wrap">
+      <div class="cookie-modal-body">
+        <p>Wir nutzen Cookies auf unserer Website. Einige von ihnen sind essenziell, während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern.</p>
+        <p>Wenn Sie unter 16 Jahre alt sind und Ihre Zustimmung zu freiwilligen Diensten geben möchten, müssen Sie Ihre Erziehungsberechtigten um Erlaubnis bitten.</p>
+        <p>Wir verwenden Cookies und andere Technologien auf unserer Website. Einige von ihnen sind essenziell, während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern. Personenbezogene Daten können verarbeitet werden (z.&nbsp;B. IP-Adressen), z.&nbsp;B. für personalisierte Anzeigen und Inhalte oder Anzeigen- und Inhaltsmessung. Weitere Informationen über die Verwendung Ihrer Daten finden Sie in unserer <a href="https://www.lynq.tech/datenschutzerklaerung/" target="_blank" rel="noopener">Datenschutzerklärung</a>. Sie können Ihre Auswahl jederzeit unter <a href="#" id="cookieReopenLink">Einstellungen</a> widerrufen oder anpassen.</p>
+        <hr class="cookie-divider cookie-divider-inline">
+        <p>Einige Services verarbeiten personenbezogene Daten in den USA. Mit Ihrer Einwilligung zur Nutzung dieser Services stimmen Sie auch der Verarbeitung Ihrer Daten in den USA gemäß Art.&nbsp;49 (1) lit.&nbsp;a DSGVO zu. Der EuGH stuft die USA als Land mit unzureichendem Datenschutz nach EU-Standards ein. So besteht etwa das Risiko, dass US-Behörden personenbezogene Daten in Überwachungsprogrammen verarbeiten, ohne bestehende Klagemöglichkeit für Europäer.</p>
+        <hr class="cookie-divider cookie-divider-inline">
+        <div class="cookie-checkboxes">
+          <label class="cookie-check-item">
+            <input type="checkbox" checked disabled> Essenziell
+          </label>
+          <label class="cookie-check-item">
+            <input type="checkbox" id="ckStatistiken"> Statistiken
+          </label>
+          <label class="cookie-check-item">
+            <input type="checkbox" id="ckMarketing"> Marketing
+          </label>
+          <label class="cookie-check-item">
+            <input type="checkbox" id="ckExterne"> Externe Medien
+          </label>
+        </div>
+        <div class="cookie-modal-footer">
+          <a href="#" id="cookieDetailsLink">Cookie-Details</a>
+          <a href="https://www.lynq.tech/datenschutzerklaerung/" target="_blank" rel="noopener">Datenschutzerklärung</a>
+          <a href="https://www.lynq.tech/impressum/" target="_blank" rel="noopener">Impressum</a>
+        </div>
       </div>
-    </div>
-    <div class="cookie-modal-actions">
-      <button class="cookie-btn" id="cookieSave">Speichern</button>
-      <button class="cookie-btn" id="cookieAcceptAll">Alle akzeptieren</button>
-      <button class="cookie-btn" id="cookieEssential">Nur essenzielle Cookies akzeptieren</button>
-      <button class="cookie-btn" id="cookieIndividual">Individuelle Datenschutzeinstellungen</button>
-    </div>
-    <div class="cookie-modal-footer">
-      <a href="#" id="cookieDetailsLink">Cookie-Details</a>
-      <a href="https://www.lynq.tech/datenschutzerklaerung/" target="_blank" rel="noopener">Datenschutzerklärung</a>
-      <a href="https://www.lynq.tech/impressum/" target="_blank" rel="noopener">Impressum</a>
+      <div class="cookie-modal-actions">
+        <button class="cookie-btn" id="cookieSave">Speichern</button>
+        <button class="cookie-btn" id="cookieAcceptAll">Alle akzeptieren</button>
+        <button class="cookie-btn" id="cookieEssential">Nur essenzielle Cookies akzeptieren</button>
+        <button class="cookie-btn" id="cookieIndividual">Individuelle Datenschutz&shy;einstellungen</button>
+      </div>
     </div>
   </div>
 </div>
