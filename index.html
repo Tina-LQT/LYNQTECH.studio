@@ -1117,8 +1117,11 @@
     z-index: 1;
   }
   .about-content {
-    max-width: 720px;
+    max-width: 38%;
     margin: 0 0 56px;
+  }
+  @media (max-width: 768px) {
+    .about-content { max-width: 100%; }
   }
   .about-section .eyebrow {
     margin-bottom: 12px;
