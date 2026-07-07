@@ -544,48 +544,43 @@
     display: block;
   }
 
-  /* Wirkung — vollbreitiges Bild, nahtlos angrenzend */
-  #why       { padding-bottom: 0; }
+  /* Wirkung — CSS-Nachbau, scharf bei jeder Auflösung */
+  #why        { padding-bottom: 0; }
   #ergebnisse { padding-top: 0; }
   .wirkung-section {
-    padding: 40px 0;
-    margin: 0;
+    padding: 56px 0;
+    margin: 20px 0;
     width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    display: block;
-    background: var(--lynq-bg);
-  }
-  .wirkung-wrap {
+    background: linear-gradient(125deg, #d9edda 0%, #e8f3e8 28%, #f3f8f3 60%, #fafcfa 100%);
     position: relative;
-    line-height: 0;
+    overflow: hidden;
   }
-  .wirkung-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-  }
-  .wirkung-cta-overlay {
+  .wirkung-section::before {
+    content: "";
     position: absolute;
-    bottom: 14%;
-    left: 4%;
-    width: 22%;
-    height: 9%;
-    border-radius: 100px;
-    cursor: pointer;
+    top: 0; left: 0;
+    width: 50%;
+    height: 7px;
+    background: var(--lynq-green);
   }
-  @media (max-width: 768px) {
-    .wirkung-img {
-      max-height: 60vw;
-      object-position: center center;
-    }
-    .wirkung-cta-overlay {
-      width: 44%;
-      height: 7%;
-      bottom: 12%;
-      left: 4%;
-    }
+  .wirkung-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 42%;
+    height: 7px;
+    background: var(--lynq-green);
+  }
+  .wirkung-heading {
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--lynq-blue);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin: 0 0 36px;
+    max-width: 660px;
+    hyphens: none;
+    word-break: normal;
   }
 
   /* ------------ CO-CREATION GRID ------------ */
@@ -1477,6 +1472,11 @@
     box-shadow: 0 20px 56px -8px rgba(0,0,0,.48);
     cursor: default;
   }
+  .testimonial-card:not(.tc-active):hover {
+    opacity: .92;
+    transform: scale(.93) translateY(-6px);
+    box-shadow: 0 16px 40px -8px rgba(0,0,0,.38);
+  }
   .testimonial-avatar {
     width: 76px;
     height: 76px;
@@ -1810,8 +1810,8 @@
           <span class="hero-stat-label">Mitarbeiter &amp; Experten</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-num">3+</span>
-          <span class="hero-stat-label">Abgeschlossene Sprints</span>
+          <span class="hero-stat-num">846+</span>
+          <span class="hero-stat-label">Jahre Erfahrung</span>
         </div>
       </div>
     </div>
@@ -1824,7 +1824,7 @@
   <div class="container">
     <header class="section-header">
       <span class="eyebrow">Unser WHY</span>
-      <h2>Wie viele<span class="highlight">Ideen</span> landen bei Ihnen in der Schublade?</h2>
+      <h2>Wie viele<span class="highlight">Ideen</span>landen bei Ihnen in der Schublade?</h2>
       <hr class="accent-line">
     </header>
     <div class="why-grid">
@@ -1844,13 +1844,9 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
 
 <!-- ============= WIRKUNG ============= -->
 <section class="wirkung-section">
-  <div class="wirkung-wrap">
-    <img src="Wirkung.png"
-         alt="Nachhaltige Wirkung statt kurzfristigem Wow-Effekt"
-         class="wirkung-img">
-    <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche"
-       class="wirkung-cta-overlay"
-       aria-label="Sprintwoche buchen"></a>
+  <div class="container">
+    <h2 class="wirkung-heading">Nachhaltige Wirkung,<br>statt kurzfristigem<br>„Wow-Effekt".</h2>
+    <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn-tape xl">Sprintwoche buchen</a>
   </div>
 </section>
 
