@@ -17,9 +17,9 @@
     --lynq-blue-deep: #06202a;
 
     /* Surfaces */
-    --lynq-bg: #ffffff;
-    --lynq-surface-1: #fafbfc;
-    --lynq-surface-2: #f4f6f7;
+    --lynq-bg: #f5f7f4;
+    --lynq-surface-1: #edf0ee;
+    --lynq-surface-2: #e6e9e7;
 
     /* Text */
     --lynq-text-primary: #0c3140;
@@ -532,6 +532,62 @@
   .section-light { background: var(--lynq-bg); }
   .section-alt { background: var(--lynq-surface-1); }
 
+  /* Sektion-Trenner Bild */
+  .section-trenner {
+    width: 100%;
+    line-height: 0;
+    background: var(--lynq-bg);
+  }
+  .section-trenner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Wirkung — vollbreitiges Bild, nahtlos angrenzend */
+  #why       { padding-bottom: 0; }
+  #ergebnisse { padding-top: 0; }
+  .wirkung-section {
+    padding: 40px 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    display: block;
+    background: var(--lynq-bg);
+  }
+  .wirkung-wrap {
+    position: relative;
+    line-height: 0;
+  }
+  .wirkung-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .wirkung-cta-overlay {
+    position: absolute;
+    bottom: 14%;
+    left: 4%;
+    width: 22%;
+    height: 9%;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    .wirkung-img {
+      max-height: 60vw;
+      object-position: center center;
+    }
+    .wirkung-cta-overlay {
+      width: 44%;
+      height: 7%;
+      bottom: 12%;
+      left: 4%;
+    }
+  }
+
   /* ------------ CO-CREATION GRID ------------ */
   .grid-4 {
     display: grid;
@@ -830,8 +886,8 @@
 
   /* ------------ CO-CREATION + WAS IHR BEKOMMT ------------ */
   .benefits {
-    background: var(--lynq-blue);
-    color: #fff;
+    background: var(--lynq-bg);
+    color: var(--lynq-blue);
     position: relative;
     overflow: hidden;
   }
@@ -840,17 +896,26 @@
   .benefits .container { position: relative; z-index: 1; padding: 96px 0; }
   .benefits .section-header h2 { color: #fff; }
   .hook-intro { padding-bottom: 16px; }
-  .hook-intro h1 {
-    color: #fff;
-    max-width: 900px;
-    margin: 0 0 36px;
-    letter-spacing: -0.025em;
+  .hook-intro-wrap {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 680px;
   }
-  .hook-intro h1 .accent {
-    background: linear-gradient(135deg, #47e530 0%, #8fff7a 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .hook-intro-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  /* Unsichtbarer klickbarer Bereich über dem CTA-Button im SVG */
+  .hook-intro-cta-overlay {
+    position: absolute;
+    top: 62%;
+    left: 3%;
+    width: 32%;
+    height: 11%;
+    border-radius: 100px;
+    cursor: pointer;
   }
 
   /* Helle Karte für "Was Sie bekommen" — Post-its im Hintergrund */
@@ -862,22 +927,41 @@
     padding: 56px 64px;
     overflow: hidden;
   }
-  .adv-section::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    aspect-ratio: 4 / 3;
-    background: url('Post its grün blau.png') center / contain no-repeat;
-    opacity: 0.13;
-    pointer-events: none;
-    z-index: 0;
-  }
   .adv-section .adv-wrap {
     position: relative;
     z-index: 1;
+  }
+
+  /* Post-its Dekoration: linkes Drittel, obere 40% der Benefits-Sektion */
+  .postits-scatter {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .postit {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: url('Post its grün.png') center / contain no-repeat;
+    box-shadow: 4px 6px 12px rgba(0,0,0,.15);
+  }
+  .postit::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: rgba(0,0,0,.18);
+    border-radius: 2px 2px 0 0;
+  }
+  /* Individuelle Positionen + Rotationen (linkes Drittel, obere 40%) */
+  .postit-1 { top:  5%; left:  3%; transform: rotate(-6deg); }
+  .postit-2 { top: 14%; left: 21%; transform: rotate( 8deg); }
+  .postit-3 { top:  2%; left: 27%; transform: rotate(-3deg); }
+  .postit-4 { top: 27%; left:  5%; transform: rotate(10deg); }
+  .postit-5 { top: 33%; left: 19%; transform: rotate(-8deg); }
+  @media (max-width: 768px) {
+    .postit { width: 80px; height: 80px; }
   }
 
   /* Co-Creation + Vorteile: Split-Layout (Header links sticky, Content rechts) */
@@ -935,7 +1019,7 @@
   /* Trenner */
   .benefits-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.18) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(12,49,64,.14) 50%, transparent 100%);
     margin: 96px 0;
   }
 
@@ -1010,6 +1094,22 @@
     background: var(--lynq-surface-1);
     padding: 96px 0;
     text-align: left;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-trenner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .about-section .container {
+    position: relative;
+    z-index: 1;
   }
   .about-content {
     max-width: 720px;
@@ -1731,20 +1831,24 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
   </div>
 </section>
 
-<!-- ============= NACHHALTIGE WIRKUNG + KONKRETE ERGEBNISSE ============= -->
-<section class="benefits" id="benefits">
+
+
+
+<!-- ============= WIRKUNG ============= -->
+<section class="wirkung-section">
+  <div class="wirkung-wrap">
+    <img src="Wirkung.png"
+         alt="Nachhaltige Wirkung statt kurzfristigem Wow-Effekt"
+         class="wirkung-img">
+    <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche"
+       class="wirkung-cta-overlay"
+       aria-label="Sprintwoche buchen"></a>
+  </div>
+</section>
+
+<!-- ============= WAS SIE BEKOMMEN ============= -->
+<section class="section-alt" id="ergebnisse">
   <div class="container">
-    <div class="hook-intro">
-      <h1>
-        Nachhaltige Wirkung,<br>
-        <span class="accent">statt kurzfristigem<br>"Wow-Effekt".</span>
-      </h1>
-      <a href="mailto:info@lynqtech.studio?subject=Anfrage%20zur%20AI%20Sprintwoche" class="btn-tape xl">
-        Sprintwoche buchen
-      </a>
-    </div>
-    <div class="benefits-divider"></div>
-    <div class="adv-section">
     <div class="adv-wrap">
       <div class="adv-header">
         <span class="eyebrow">Was Sie bekommen</span>
@@ -1775,7 +1879,7 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </span>
           <div class="adv-content">
-            <h3>Security & Compliance Review</h3>
+            <h3>Security &amp; Compliance Review</h3>
             <p>Gemeinsam stellen wir die wichtigen Fragen, damit es keine Überraschung kurz vor dem Go-Live gibt.</p>
           </div>
         </li>
@@ -1793,17 +1897,14 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </span>
           <div class="adv-content">
-            <h3>Dokumentation & Knowhow-Transfer</h3>
+            <h3>Dokumentation &amp; Knowhow-Transfer</h3>
             <p>Sie bleiben unabhängig und erhalten eine strukturierte Übergabe nach der AI Sprintwoche.</p>
           </div>
         </li>
       </ul>
     </div>
-    </div><!-- /adv-section -->
   </div>
 </section>
-
-
 
 <!-- ============= UNSER VORGEHEN ============= -->
 <section class="section-alt" id="vorgehen">
@@ -1908,6 +2009,7 @@ Genau hier setzt der <strong>LYNQTECH AI Sprint</strong> an: In fünf Tagen brin
 
 <!-- ============= ABOUT / KUNDEN ============= -->
 <section class="about-section" id="philosophie">
+  <img src="Trenner.png" alt="" class="about-trenner-bg" aria-hidden="true">
   <div class="container">
     <div class="about-content">
       <span class="eyebrow">Philosophie</span>
