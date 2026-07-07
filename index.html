@@ -528,8 +528,9 @@
 
   /* ------------ SECTIONS ------------ */
   section { padding: 96px 0; }
-  @media (max-width: 768px) { section { padding: 64px 0; } }
-  @media (max-width: 480px) { section { padding: 48px 0; } }
+  section + section { margin-top: 30px; }
+  @media (max-width: 768px) { section { padding: 64px 0; } section + section { margin-top: 20px; } }
+  @media (max-width: 480px) { section { padding: 48px 0; } section + section { margin-top: 16px; } }
   .section-light { background: var(--lynq-bg); }
   .section-alt { background: var(--lynq-bg); }
 
@@ -1506,7 +1507,33 @@
     line-height: 1.65;
     font-style: italic;
     max-width: 480px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: max-height .4s ease;
+    max-height: calc(1.65em * 4);
   }
+  .testimonial-text.expanded {
+    display: block;
+    overflow: visible;
+    max-height: 600px;
+  }
+  .testimonial-toggle {
+    background: none;
+    border: none;
+    color: var(--lynq-green);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    margin-top: -6px;
+    letter-spacing: .02em;
+    transition: opacity .15s;
+    font-family: inherit;
+  }
+  .testimonial-toggle:hover { opacity: .75; }
   /* nav arrows */
   .tc-btn {
     flex-shrink: 0;
@@ -2072,6 +2099,7 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
           <p class="testimonial-name"><em>Johannes S.</em></p>
           <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
           <p class="testimonial-text">„Fünf Tage bis zum Prototyp, vier Wochen bis Go-Live: Die Sprintwoche mit LYNQTECH hat unser Hilfeportal komplett neu aufgestellt — neues Design, Self-Service integriert, und das alles mit der Hilfe von KI. So schnell waren wir selten vom Problem bis zur Umsetzung."</p>
+          <button class="testimonial-toggle" aria-expanded="false">Mehr lesen ↓</button>
         </div>
 
         <div class="testimonial-card" data-index="1">
@@ -2079,6 +2107,7 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
           <p class="testimonial-name"><em>Jessi S.</em></p>
           <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
           <p class="testimonial-text">„Von der ersten Idee bis zum greifbaren Ergebnis in nur fünf Tagen: Die Sprintwoche mit LYNQTECH hat gezeigt, was möglich ist, wenn geballte Expertise, klare Ziele und schnelle Entscheidungen aufeinandertreffen. Durch die enge Zusammenarbeit im Team und den gezielten Einsatz von KI konnten wir Lösungen entwickeln, für die klassische Projekte oft Wochen oder Monate benötigen. Schnell, fokussiert und mit sichtbaren Ergebnissen vom ersten Tag an."</p>
+          <button class="testimonial-toggle" aria-expanded="false">Mehr lesen ↓</button>
         </div>
 
         <div class="testimonial-card" data-index="2">
@@ -2086,6 +2115,7 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
           <p class="testimonial-name"><em>Jan-Cristof K.</em></p>
           <div class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</div>
           <p class="testimonial-text">„Wir haben eine der AI-Sprintwochen von LYNQTECH Studio durchgeführt und waren begeistert. Die Vorbereitung war hervorragend organisiert, sodass wir direkt produktiv und kreativ in die Woche starten konnten. Besonders wertvoll war für uns, dass genau die richtigen Personen für eine Woche zusammengebracht wurden, um fokussiert an einem Thema zu arbeiten – ohne Ablenkungen durch das Tagesgeschäft. Durch diesen geschützten Raum entstanden in kurzer Zeit viele neue Ideen, konkrete Ergebnisse und ein gemeinsames Verständnis für die nächsten Schritte. Der Sprint hat eindrucksvoll gezeigt, wie viel Fortschritt möglich ist, wenn Expertise, Entscheidungsfähigkeit und Fokus konsequent zusammengeführt werden. Eine klare Empfehlung für alle, die komplexe Themen schnell und nachhaltig voranbringen möchten."</p>
+          <button class="testimonial-toggle" aria-expanded="false">Mehr lesen ↓</button>
         </div>
       </div>
 
@@ -2201,6 +2231,22 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
     render(0);
     window.addEventListener('resize', () => render(active));
   })();
+
+  // ============= TESTIMONIAL EXPAND/COLLAPSE =============
+  document.querySelectorAll('.testimonial-toggle').forEach(function(btn) {
+    var text = btn.previousElementSibling;
+    // hide button if text doesn't overflow
+    if (text.scrollHeight <= text.clientHeight + 4) {
+      btn.style.display = 'none';
+      return;
+    }
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation(); // don't trigger carousel click
+      var expanded = text.classList.toggle('expanded');
+      btn.textContent = expanded ? 'Weniger ↑' : 'Mehr lesen ↓';
+      btn.setAttribute('aria-expanded', expanded);
+    });
+  });
 
   // ============= SMOOTH SCROLL =============
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
