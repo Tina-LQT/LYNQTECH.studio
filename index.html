@@ -2410,11 +2410,10 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
 
     function closeBanner() {
       overlay.classList.add('hiding');
-      overlay.addEventListener('transitionend', function handler() {
-        overlay.classList.remove('hiding');
+      setTimeout(function() {
         overlay.classList.add('hidden');
-        overlay.removeEventListener('transitionend', handler);
-      });
+        overlay.classList.remove('hiding');
+      }, 420); // slightly longer than the 380ms CSS transition
     }
     function openBanner() {
       overlay.classList.add('hiding');   // start offscreen
