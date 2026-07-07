@@ -1738,19 +1738,15 @@
   /* ============= COOKIE BANNER ============= */
   .cookie-overlay {
     position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.55);
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    backdrop-filter: blur(3px);
-    opacity: 1;
-    transition: opacity .3s ease;
+    transform: translateY(0);
+    transition: transform .38s cubic-bezier(.4,0,.2,1);
   }
   .cookie-overlay.hiding {
-    opacity: 0;
+    transform: translateY(110%);
     pointer-events: none;
   }
   .cookie-overlay.hidden {
@@ -1758,20 +1754,14 @@
   }
   .cookie-modal {
     background: #fff;
-    border-radius: 16px;
+    border-radius: 16px 16px 0 0;
     width: 100%;
-    max-width: 640px;
-    max-height: 88vh;
+    max-width: 100%;
+    max-height: 72vh;
     overflow-y: auto;
-    box-shadow: 0 24px 64px rgba(0,0,0,.32);
+    box-shadow: 0 -6px 40px rgba(0,0,0,.18);
     display: flex;
     flex-direction: column;
-    transform: scale(1) translateY(0);
-    transition: transform .3s cubic-bezier(.4,0,.2,1), opacity .3s ease;
-  }
-  .cookie-overlay.hiding .cookie-modal {
-    transform: scale(0.96) translateY(12px);
-    opacity: 0;
   }
   .cookie-modal-header {
     display: flex;
@@ -1829,8 +1819,9 @@
   .cookie-modal-body .cookie-divider { margin: 16px 0; }
   .cookie-checkboxes {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px 32px;
     margin: 4px 0 20px;
   }
   .cookie-check-item {
@@ -1874,30 +1865,31 @@
   }
   .cookie-modal-actions {
     padding: 4px 28px 16px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     flex-shrink: 0;
   }
   .cookie-btn {
     width: 100%;
-    padding: 14px 20px;
+    padding: 13px 16px;
     border: none;
     border-radius: 8px;
     background: var(--lynq-green);
     color: var(--lynq-blue);
-    font-size: .95rem;
+    font-size: .9rem;
     font-weight: 700;
     cursor: pointer;
     transition: filter .15s, transform .1s;
     text-align: center;
+    line-height: 1.3;
   }
   .cookie-btn:hover {
     filter: brightness(1.08);
     transform: translateY(-1px);
   }
   .cookie-modal-footer {
-    padding: 12px 28px 24px;
+    padding: 10px 28px 20px;
     display: flex;
     gap: 24px;
     justify-content: center;
@@ -1913,7 +1905,8 @@
   }
   .cookie-modal-footer a:hover { color: var(--lynq-blue); }
   @media (max-width: 480px) {
-    .cookie-modal { border-radius: 12px; max-height: 95vh; }
+    .cookie-modal { border-radius: 12px 12px 0 0; max-height: 95vh; }
+    .cookie-modal-actions { grid-template-columns: 1fr; }
     .cookie-modal-header { padding: 18px 18px 14px; }
     .cookie-modal-logo img { height: 44px; }
     .cookie-modal-logo h2 { font-size: 1.1rem; }
@@ -2403,9 +2396,12 @@ Genau deshalb bauen wir keine Konzepte für die Schublade. Wir bauen Lösungen, 
       });
     }
     function openBanner() {
+      overlay.classList.add('hiding');   // start offscreen
       overlay.classList.remove('hidden');
       requestAnimationFrame(function() {
-        overlay.classList.remove('hiding');
+        requestAnimationFrame(function() {  // double rAF ensures paint before transition
+          overlay.classList.remove('hiding');
+        });
       });
     }
     function saveConsent(opts) {
